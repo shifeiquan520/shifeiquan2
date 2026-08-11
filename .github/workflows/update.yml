@@ -23,8 +23,8 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: 运行聚合脚本 (raw 模式, 不探测覆盖 ku9.txt)
-        run: python aggregate.py --raw
+      - name: 运行聚合脚本 (严格验证, 可播线路前置)
+        run: python aggregate.py --strict
 
       - name: 提交并推送更新
         run: |
