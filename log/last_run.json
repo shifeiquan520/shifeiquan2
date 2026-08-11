@@ -1,0 +1,43 @@
+{
+  "time": "2026-08-11 11:34:51",
+  "source_count": 9,
+  "merged": 4137,
+  "per_source": {
+    "fanmingming_ipv6": {
+      "status": "ok",
+      "channels": 82
+    },
+    "zbefine": {
+      "status": "ok",
+      "channels": 1286
+    },
+    "Kimentanm_aptv": {
+      "status": "ok",
+      "channels": 119
+    },
+    "YanG": {
+      "status": "ok",
+      "channels": 129
+    },
+    "BigBigGrandG": {
+      "status": "ok",
+      "channels": 1955
+    },
+    "ChinaIPTV": {
+      "status": "ok",
+      "channels": 69
+    },
+    "Guovin": {
+      "status": "ok",
+      "channels": 1684
+    },
+    "vamoschuck": {
+      "status": "ok",
+      "channels": 789
+    },
+    "zby": {
+      "status": "ok",
+      "channels": 589
+    }
+  }
+}
