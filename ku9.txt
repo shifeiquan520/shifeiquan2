@@ -1,4 +1,4 @@
-# 更新时间: 2026-08-11 06:18:33
+# 更新时间: 2026-08-11 06:29:12
 
 央视频道,#genre#
 CCTV-1 综合,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv1hd#http://204.12.221.218:8181/3m1080p/cctv1.m3u8#http://38.75.136.137:98/gslb/dsdqbv/cctv1hd.m3u8?auth=test20251009#http://74.91.26.218:82/live/cctv1hd.m3u8#http://198.204.228.26/live/cctv1hd.m3u8#http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226895/1.m3u8?#http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001022/index.m3u8
