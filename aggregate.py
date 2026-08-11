@@ -133,40 +133,122 @@ def probe(url):
 
 
 def filter_dead(channels):
-    """宽松死链剔除(可选)"""
-    alive = []
-    urls_to_check = []
+    """宽松死链剔除(可选): 逐条URL探测, 保留存活线路; 全部死亡才删频道"""
+    tasks = []
     for ch in channels:
-        if not ch["urls"]:
-            continue
-        url = ch["urls"][0]
-        urls_to_check.append((ch, url))
+        for u in ch["urls"]:
+            tasks.append((ch, u))
 
+    dead_urls = set()
     with concurrent.futures.ThreadPoolExecutor(max_workers=CHECK_CONCURRENCY) as ex:
-        futures = {ex.submit(probe, url): (ch, url) for ch, url in urls_to_check}
+        futures = {ex.submit(probe, u): u for ch, u in tasks}
         for fut in concurrent.futures.as_completed(futures):
-            ch, url = futures[fut]
+            u = futures[fut]
             try:
                 ok = fut.result()
             except Exception:
                 ok = True
-            if ok:
-                alive.append(ch)
+            if not ok:
+                dead_urls.add(u)
+
+    alive = []
+    for ch in channels:
+        urls = [u for u in ch["urls"] if u not in dead_urls]
+        if urls:
+            ch["urls"] = urls
+            alive.append(ch)
     return alive
+
+
+CCTV_NAMES = {
+    "CCTV1": "CCTV-1 综合",
+    "CCTV2": "CCTV-2 财经",
+    "CCTV3": "CCTV-3 综艺",
+    "CCTV4": "CCTV-4 中文国际",
+    "CCTV5": "CCTV-5 体育",
+    "CCTV5+": "CCTV-5+ 体育赛事",
+    "CCTV6": "CCTV-6 电影",
+    "CCTV7": "CCTV-7 国防军事",
+    "CCTV8": "CCTV-8 电视剧",
+    "CCTV9": "CCTV-9 纪录",
+    "CCTV10": "CCTV-10 科教",
+    "CCTV11": "CCTV-11 戏曲",
+    "CCTV12": "CCTV-12 社会与法",
+    "CCTV13": "CCTV-13 新闻",
+    "CCTV14": "CCTV-14 少儿",
+    "CCTV15": "CCTV-15 音乐",
+    "CCTV16": "CCTV-16 奥林匹克",
+    "CCTV17": "CCTV-17 农业农村",
+    "CCTV4K": "CCTV-4K 超高清",
+    "CCTV8K": "CCTV-8K 超高清",
+}
+CCTV_SPECIAL = {
+    "CCTV女时尚": "CCTV-女性时尚",
+    "CCTV老故事": "CCTV-老故事",
+    "CCTV新闻动漫": "CCTV-新闻动漫",
+    "CCTV鏂扮戝姩婕": "CCTV-新科动漫",
+}
+GROUP_ORDER = ["央视频道", "卫视频道", "福建频道"]
+
+
+def normalize_cctv(name):
+    """将各种 CCTV 变体统一为 'CCTV-X 名称' 格式"""
+    n = name.strip()
+    m = re.match(r'^CCTV[- ]?[48]K$', n)
+    if m:
+        return CCTV_NAMES.get("CCTV" + m.group(0)[-2:])
+    m = re.match(r'^CCTV[- ]?5\+', n)
+    if m:
+        return CCTV_NAMES["CCTV5+"]
+    m = re.match(r'^CCTV[- ]?(\d+)', n)
+    if m:
+        key = "CCTV" + m.group(1)
+        if key in CCTV_NAMES:
+            return CCTV_NAMES[key]
+    if n in CCTV_SPECIAL:
+        return CCTV_SPECIAL[n]
+    return n
+
+
+def classify(name):
+    """按优先级分到三组, 其余返回 None"""
+    if re.match(r'^CCTV', name, re.I):
+        return "央视频道"
+    if ("福建" in name or "厦门" in name or "海峡" in name
+            or name.startswith("东南卫视")
+            or "CETV" in name.upper() or name.startswith("中国教育")):
+        return "福建频道"
+    if "卫视" in name or "凤凰资讯" in name:
+        return "卫视频道"
+    return None
+
+
+def filter_group(channels):
+    """统一 CCTV 名称 -> 分类 -> 只保留三组"""
+    kept = []
+    for ch in channels:
+        name = ch["name"]
+        if re.match(r'^CCTV', name, re.I):
+            name = normalize_cctv(name)
+        g = classify(name)
+        if not g:
+            continue
+        ch["name"] = name
+        ch["group"] = g
+        kept.append(ch)
+    return kept
 
 
 def to_txt(channels):
     lines = ["# 更新时间: %s" % time.strftime("%Y-%m-%d %H:%M:%S"), ""]
-    group_order = []
     by_group = {}
     for ch in channels:
-        g = ch.get("group", "") or ""
+        g = ch.get("group", "") or "未分组"
+        by_group.setdefault(g, []).append(ch)
+    for g in GROUP_ORDER:
         if g not in by_group:
-            by_group[g] = []
-            group_order.append(g)
-        by_group[g].append(ch)
-    for g in group_order:
-        lines.append("%s,#genre#" % (g or "未分组"))
+            continue
+        lines.append("%s,#genre#" % g)
         for ch in by_group[g]:
             lines.append("%s,%s" % (ch["name"], "#".join(ch["urls"])))
         lines.append("")
@@ -210,6 +292,14 @@ def main():
     print("抓取完成, 原始频道 %d" % len(all_channels))
     merged = merge_dedupe(all_channels)
     print("合并去重后: %d" % len(merged))
+
+    merged = filter_group(merged)
+    merged = merge_dedupe(merged)  # CCTV 统一名称后再合并一次
+    print("过滤后(仅央视/卫视/福建): %d" % len(merged))
+    from collections import Counter
+    gc = Counter(ch["group"] for ch in merged)
+    for g in GROUP_ORDER:
+        print("  %s: %d" % (g, gc.get(g, 0)))
 
     do_check = "--no-check" not in sys.argv
     if do_check:
