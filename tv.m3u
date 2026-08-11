@@ -223,10 +223,10 @@ http://207.56.13.146:81/cdnlive/cctv4.m3u8
 http://198.204.228.26/live/cctv4hd.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-4 中文国际",CCTV-4 中文国际
-https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv4_mbd.m3u8?auth_key=1786473900-1-b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c-6ae5ccb34b1e90a8616390bf4741dc4b&yid=b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c
+https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv4_mbd.m3u8?auth_key=1786474800-1-b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c-e5b1378380d595cfe911d9124a5af093&yid=b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-4 中文国际",CCTV-4 中文国际
-https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv4k_mbd.m3u8?auth_key=1786473900-1-b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c-2d5c6cd7fb785555a7c35d40dff5eafa&yid=b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c
+https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv4k_mbd.m3u8?auth_key=1786474800-1-b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c-a6944c28b91be682588a5b4bdd93971c&yid=b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-4 中文国际",CCTV-4 中文国际
 http://114.254.89.131:2222/rtp/239.3.1.105:8092
@@ -541,7 +541,7 @@ http://192.151.150.154/live/cctv9hd.m3u8
 http://69.30.245.50/live/cctv9.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-9 纪录",CCTV-9 纪录
-https://v4-e6b1c5baf4e240fe63adbf68dda23435.livehwc4.com/play.kankanlive.com/live/1698423397390920.m3u8?sub_m3u8=true&edge_slice=true&user_session_id=1b1a664477581aa18ec45f676a487e36
+https://v4-702cae17a28d6e4f0c0002bba021d934.livehwc4.com/play.kankanlive.com/live/1698423397390920.m3u8?sub_m3u8=true&edge_slice=true&user_session_id=f3dfbe3e9546fbc28ac6e67dd10d9f97
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-9 纪录",CCTV-9 纪录
 http://114.254.89.131:2222/rtp/239.3.1.62:8112
@@ -593,6 +593,9 @@ http://74.91.26.218:82/live/cctv10hd.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-10 科教",CCTV-10 科教
 http://204.12.221.218:8181/3m1080p/cctv10.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-10 科教",CCTV-10 科教
+https://hwapi.yntv.net/ew265l/z1z6s5.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-10 科教",CCTV-10 科教
 http://114.254.89.131:2222/rtp/239.3.1.63:8116
@@ -1192,9 +1195,6 @@ http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001032/index.m3u8
 http://113.117.74.17:8081/hls/140/index.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="广东卫视",广东卫视
-https://piccpndks.v.kcdnvip.com/audio/guangdong_2/index.m3u8
-#EXTGRP:卫视频道
-#EXTINF:-1 tvg-name="广东卫视",广东卫视
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gdwshd
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="广东卫视",广东卫视
@@ -1303,6 +1303,9 @@ http://101.35.240.114:88/live.php?id=深圳卫视4K
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001030/index.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="深圳卫视",深圳卫视
+https://sztv-hls.sztv.com.cn/AxeFRth/500/q37Ace0.m3u8?sign=ddbbaeef6d1f09d0e238b27e7c7d1ffa&t=6a73bbfc
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="深圳卫视",深圳卫视
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=szwshd
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="深圳卫视",深圳卫视
@@ -1361,6 +1364,9 @@ http://101.35.240.114:88/live.php?id=四川卫视4K
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="四川卫视",四川卫视
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001130/index.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="四川卫视",四川卫视
+https://piccpndks.v.kcdnvip.com/audio/sichuan_2/index.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="四川卫视",四川卫视
 https://live.264788.xyz/channel/sichuanweishi4k?streamid=21be5901ee81559c827dc84e46f26452&livekey=01WgOR41rriMmMkzNsd0UoaxJRwetZdxIvtVk
@@ -1846,7 +1852,7 @@ http://101.35.240.114:88/live.php?id=重庆卫视
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001129/index.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="重庆卫视",重庆卫视
-http://p2.ioioz.com/videojs.php?id=https://sjlivecdn9.cbg.cn/202608111201/app_2/_definst_/ls_2.stream/chunklist.m3u8
+http://p2.ioioz.com/videojs.php?id=https://sjlivecdn9.cbg.cn/202608111207/app_2/_definst_/ls_2.stream/chunklist.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="重庆卫视",重庆卫视
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cqwshd
@@ -1996,6 +2002,9 @@ http://101.35.240.114:88/live.php?id=安徽卫视
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001037/index.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="安徽卫视",安徽卫视
+https://piccpndks.v.kcdnvip.com/audio/anhui_2/index.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="安徽卫视",安徽卫视
 http://204.12.221.218:8181/3m1080p/ahws.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="安徽卫视",安徽卫视
@@ -2029,7 +2038,7 @@ http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001223/index.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="云南卫视",云南卫视
-http://p2.ioioz.com/xgplayer.php?id=https://hwapi.yntv.net/ew265l/z1z6s5.m3u8
+https://hwapi.yntv.net/ew265l/z1z6s5.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="云南卫视",云南卫视
 http://38.75.136.137:98/gslb/dsdqpub/ynwshd.m3u8?auth=testpub
