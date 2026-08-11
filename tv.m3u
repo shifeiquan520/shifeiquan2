@@ -76,6 +76,9 @@ http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv4hd
 http://38.75.136.137:98/gslb/dsdqpub/cctv4k.m3u8?auth=testpub
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-4 中文国际",CCTV-4 中文国际
+http://207.56.13.146:81/cdnlive/cctv4.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-4 中文国际",CCTV-4 中文国际
 http://198.204.228.26/live/cctv4hd.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-4 中文国际",CCTV-4 中文国际
@@ -107,6 +110,9 @@ http://38.75.136.137:98/gslb/dsdqpub/cctv5p.m3u8?auth=testpub
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-5 体育",CCTV-5 体育
 http://38.75.136.137:98/gslb/dsdqpub/cctv5hd.m3u8?auth=testpub
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-5 体育",CCTV-5 体育
+http://207.56.13.146:81/cdnlive/cctv5.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-5 体育",CCTV-5 体育
 http://198.204.228.26/live/cctv5hd.m3u8
@@ -154,6 +160,9 @@ http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv7hd
 http://69.30.245.50/live/cctv7.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-7 国防军事",CCTV-7 国防军事
+http://207.56.13.146:81/cdnlive/cctv7.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-7 国防军事",CCTV-7 国防军事
 http://107.150.60.122/live/cctv7hd.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-7 国防军事",CCTV-7 国防军事
@@ -173,6 +182,9 @@ http://38.75.136.137:98/gslb/dsdqpub/cctv8k.m3u8?auth=testpub
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-8 电视剧",CCTV-8 电视剧
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv8hd
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-8 电视剧",CCTV-8 电视剧
+http://207.56.13.146:81/cdnlive/cctv8.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-8 电视剧",CCTV-8 电视剧
 http://69.30.245.50/live/cctv8.m3u8
@@ -284,6 +296,9 @@ http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv13hd
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-13 新闻",CCTV-13 新闻
 http://74.91.26.218:82/live/cctv13hd.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-13 新闻",CCTV-13 新闻
+http://bztv.tvbus.cc:8081/cdnlive/cctv13.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-13 新闻",CCTV-13 新闻
 http://120.76.248.139/live/bfgd/4200000067.m3u8
@@ -1032,8 +1047,11 @@ http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001222/index.m3u8
 #EXTINF:-1 tvg-name="兵团卫视",兵团卫视
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001066/index.m3u8
 #EXTGRP:卫视频道
-#EXTINF:-1 tvg-name="山东教育卫视",山东教育卫视
-http://livewai.sdetv.com.cn/live/da4ebbb91ee8468db5a9d230a535391f_transios/playlist.m3u8
+#EXTINF:-1 tvg-name="安多卫视",安多卫视
+https://stream1.freetv.fun/52d0df257c5c3cec42f2ae19268dbbc261256ff391b27bd83553bea941d0c186.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="安多卫视",安多卫视
+https://liveout.xntv.tv/a65jur/96iln2.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="凤凰资讯",凤凰资讯
 https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV22.m3u8
@@ -1139,9 +1157,96 @@ http://[2409:8087:1a0b:df::4020]:80/ottrrs.hl.chinamobile.com/TVOD/88888888/224/
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="香港卫视",香港卫视
 http://cctvtxyh5c.liveplay.myqcloud.com/cstv/xianggangweishi_2/index.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="香港卫视",香港卫视
+https://stream1.freetv.fun/5335c88a9a7d8b74173b491f480d4f94e8d3bd596af54478106aa2399e6c7917.ctv
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="香港卫视",香港卫视
+https://stream1.freetv.fun/c751876ae5ceaa0d82b5cf2badc152342aa92a4b45bf504d12ee45966b2fc644.ctv
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="香港卫视",香港卫视
+https://stream1.freetv.fun/5335c88a9a7d8b74173b491f480d4f94e8d3bd596af54478106aa2399e6c7917.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="香港卫视",香港卫视
+https://stream1.freetv.fun/ae7eaf28d8610cdc1651ef6a1f7dbb24b49c5a87627d0d881330afaea37a1616.m3u8
 #EXTGRP:福建频道
 #EXTINF:-1 tvg-name="福建新闻",福建新闻
 http://satellitepull.cnr.cn/live/wx32fjxwgb/playlist.m3u8
 #EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建电视剧",福建电视剧
+https://stream1.freetv.fun/fu-jian-dian-shi-ju-1.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建电视剧",福建电视剧
+https://stream1.freetv.fun/fu-jian-dian-shi-ju-5.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建电视剧",福建电视剧
+https://stream1.freetv.fun/fu-jian-dian-shi-ju-2.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建电视剧",福建电视剧
+https://stream1.freetv.fun/fu-jian-dian-shi-ju-3.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建电视剧",福建电视剧
+https://stream1.freetv.fun/fu-jian-dian-shi-ju-4.m3u8
+#EXTGRP:福建频道
 #EXTINF:-1 tvg-name="福建经济",福建经济
 http://satellitepull.cnr.cn/live/wx32fjdnjjgb/playlist.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建综合",福建综合
+https://stream1.freetv.fun/fu-jian-zong-he-6.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建综合",福建综合
+https://stream1.freetv.fun/fu-jian-zong-he-5.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建综合",福建综合
+https://stream1.freetv.fun/fu-jian-zong-he-4.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建综合",福建综合
+https://stream1.freetv.fun/fu-jian-zong-he-1.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建综合",福建综合
+https://stream1.freetv.fun/fu-jian-zong-he-3.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建经视",福建经视
+https://stream1.freetv.fun/fu-jian-jing-ji-4.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建经视",福建经视
+https://stream1.freetv.fun/fu-jian-jing-ji-1.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建经视",福建经视
+https://stream1.freetv.fun/fu-jian-jing-ji-2.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建经视",福建经视
+https://stream1.freetv.fun/fu-jian-jing-ji-5.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建经视",福建经视
+https://stream1.freetv.fun/fu-jian-jing-ji-6.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建少儿",福建少儿
+https://stream1.freetv.fun/fu-jian-shao-er-1.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建少儿",福建少儿
+https://stream1.freetv.fun/fu-jian-shao-er-6.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建少儿",福建少儿
+https://stream1.freetv.fun/fu-jian-shao-er-4.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建少儿",福建少儿
+https://stream1.freetv.fun/fu-jian-shao-er-7.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="福建少儿",福建少儿
+https://stream1.freetv.fun/fu-jian-shao-er-2.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="凤凰卫视",凤凰卫视
+http://php.jdshipin.com/TVOD/iptv.php?id=fhzw
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="星空卫视",星空卫视
+https://stream1.freetv.fun/xing-kong-wei-shi-12.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="星空卫视",星空卫视
+https://stream1.freetv.fun/xing-kong-wei-shi-4.ctv
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="星空卫视",星空卫视
+https://stream1.freetv.fun/xing-kong-wei-shi-10.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="星空卫视",星空卫视
+https://stream1.freetv.fun/xing-kong-wei-shi-11.m3u8
