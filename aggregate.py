@@ -15,18 +15,31 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG_FILE = os.path.join(SCRIPT_DIR, "sources.json")
 OUTPUT_TXT = os.path.join(SCRIPT_DIR, "ku9.txt")
 OUTPUT_M3U = os.path.join(SCRIPT_DIR, "tv.m3u")
+OUTPUT_RAW_TXT = os.path.join(SCRIPT_DIR, "ku9_raw.txt")
+OUTPUT_RAW_M3U = os.path.join(SCRIPT_DIR, "tv_raw.m3u")
 LOG_FILE = os.path.join(SCRIPT_DIR, "log", "last_run.json")
 
-FETCH_TIMEOUT = 15
+FETCH_TIMEOUT = 30
 CHECK_TIMEOUT = 4
+STRICT_TIMEOUT = 6
 CHECK_CONCURRENCY = 30
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 
 def fetch(url, encoding="auto"):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=FETCH_TIMEOUT) as r:
-        data = r.read()
+    last_err = None
+    for attempt in range(2):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=FETCH_TIMEOUT) as r:
+                data = r.read()
+            break
+        except Exception as e:
+            last_err = e
+            if attempt == 0:
+                time.sleep(2)
+    else:
+        raise last_err
     if encoding in ("gbk", "gb2312"):
         return data.decode("gbk", errors="ignore")
     if encoding in ("utf-8", "utf8"):
@@ -154,6 +167,63 @@ def filter_dead(channels):
     alive = []
     for ch in channels:
         urls = [u for u in ch["urls"] if u not in dead_urls]
+        if urls:
+            ch["urls"] = urls
+            alive.append(ch)
+    return alive
+
+
+def is_ipv6_url(url):
+    """判断是否为 IPv6 地址形式的 URL(带方括号)"""
+    m = re.search(r'://(\[[0-9a-fA-F:]+\])', url)
+    return bool(m)
+
+
+def strict_probe(url):
+    """严格探测: 只保留真正返回 #EXTM3U 播放列表的链接
+    前置条件: HTTP 200/206 且响应体包含 #EXTM3U
+    删除条件: 403/404/410/超时/DNS失败/连接拒绝/非m3u8 一律判死
+    """
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": UA, "Range": "bytes=0-2048"}, method="GET")
+        with urllib.request.urlopen(req, timeout=STRICT_TIMEOUT) as r:
+            if r.status not in (200, 206):
+                return False
+            data = r.read(4096)
+            return b"#EXTM3U" in data
+    except urllib.error.HTTPError:
+        return False
+    except Exception:
+        return False
+
+
+def filter_strict(channels):
+    """严格模式: 逐条验证 IPv4 链接, 只保留真 m3u8
+    线路排序: 已验证可播的 IPv4 排最前 -> 未验证的 IPv6 保留在后 -> 死链删除
+    频道全部线路失效 -> 删除该频道
+    """
+    ok_urls = set()
+    tasks = []
+    for ch in channels:
+        for u in ch["urls"]:
+            if not is_ipv6_url(u):
+                tasks.append(u)
+    if tasks:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=CHECK_CONCURRENCY) as ex:
+            futures = {ex.submit(strict_probe, u): u for u in tasks}
+            for fut in concurrent.futures.as_completed(futures):
+                u = futures[fut]
+                try:
+                    if fut.result():
+                        ok_urls.add(u)
+                except Exception:
+                    pass
+
+    alive = []
+    for ch in channels:
+        verified = [u for u in ch["urls"] if not is_ipv6_url(u) and u in ok_urls]
+        ipv6 = [u for u in ch["urls"] if is_ipv6_url(u)]
+        urls = verified + ipv6
         if urls:
             ch["urls"] = urls
             alive.append(ch)
@@ -301,11 +371,28 @@ def main():
     for g in GROUP_ORDER:
         print("  %s: %d" % (g, gc.get(g, 0)))
 
-    do_check = "--no-check" not in sys.argv
-    if do_check:
-        print("开始宽松死链剔除(%d 条探测, 超时 %ds)... " % (len(merged), CHECK_TIMEOUT))
-        merged = filter_dead(merged)
-        print("剔除后剩余: %d" % len(merged))
+    if "--raw" in sys.argv:
+        print("== raw 模式: 只抓取+分组, 不探测死链 ==")
+        with open(OUTPUT_RAW_TXT, "w", encoding="utf-8") as f:
+            f.write(to_txt(merged))
+        with open(OUTPUT_RAW_M3U, "w", encoding="utf-8") as f:
+            f.write(to_m3u(merged))
+        print("已输出 ku9_raw.txt (%d 频道) 和 tv_raw.m3u" % len(merged))
+        return
+
+    if "--strict" in sys.argv:
+        print("开始严格死链剔除(逐条验证 m3u8, 超时 %ds)... " % STRICT_TIMEOUT)
+        before_urls = sum(len(ch["urls"]) for ch in merged)
+        merged = filter_strict(merged)
+        after_urls = sum(len(ch["urls"]) for ch in merged)
+        print("严格剔除: URL %d -> %d, 频道 %d 剩余" % (
+            before_urls, after_urls, len(merged)))
+    else:
+        do_check = "--no-check" not in sys.argv
+        if do_check:
+            print("开始宽松死链剔除(%d 条探测, 超时 %ds)... " % (len(merged), CHECK_TIMEOUT))
+            merged = filter_dead(merged)
+            print("剔除后剩余: %d" % len(merged))
 
     with open(OUTPUT_TXT, "w", encoding="utf-8") as f:
         f.write(to_txt(merged))

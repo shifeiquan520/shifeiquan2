@@ -1,7 +1,7 @@
 {
-  "time": "2026-08-11 04:57:49",
+  "time": "2026-08-11 13:20:16",
   "source_count": 9,
-  "merged": 129,
+  "merged": 73,
   "per_source": {
     "fanmingming_ipv6": {
       "status": "ok",
@@ -25,7 +25,7 @@
     },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 71
+      "channels": 67
     },
     "Guovin": {
       "status": "ok",
