@@ -57,10 +57,10 @@
     },
     {
       "name": "nft6cf127_ku9",
-      "url": "https://nft6cf127.serv00.net/ku9.php",
+      "url": "https://raw.githubusercontent.com/jincg99/tvbox/refs/heads/main/live.txt",
       "type": "txt",
       "encoding": "utf-8",
-      "enabled": false
+      "enabled": true
     }
   ]
 }
