@@ -1,16 +1,19 @@
 #EXTM3U
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-1 综合",CCTV-1 综合
+http://38.75.136.137:98/gslb/dsdqbv/cctv1hd.m3u8?auth=test20251009
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-1 综合",CCTV-1 综合
+http://107.150.60.122/live/cctv1hd.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-1 综合",CCTV-1 综合
+http://74.91.26.218:82/live/cctv1hd.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-1 综合",CCTV-1 综合
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv1hd
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-1 综合",CCTV-1 综合
 http://204.12.221.218:8181/3m1080p/cctv1.m3u8
-#EXTGRP:央视频道
-#EXTINF:-1 tvg-name="CCTV-1 综合",CCTV-1 综合
-http://38.75.136.137:98/gslb/dsdqbv/cctv1hd.m3u8?auth=test20251009
-#EXTGRP:央视频道
-#EXTINF:-1 tvg-name="CCTV-1 综合",CCTV-1 综合
-http://74.91.26.218:82/live/cctv1hd.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-1 综合",CCTV-1 综合
 http://198.204.228.26/live/cctv1hd.m3u8
@@ -20,6 +23,9 @@ http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-1 综合",CCTV-1 综合
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001022/index.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-2 财经",CCTV-2 财经
+http://38.75.136.137:98/gslb/dsdqbv/cctv2hd.m3u8?auth=test20251009
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-2 财经",CCTV-2 财经
 http://107.150.60.122/live/cctv2hd.m3u8
@@ -43,13 +49,13 @@ http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001220/index.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-3 综艺",CCTV-3 综艺
-http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv3hd
-#EXTGRP:央视频道
-#EXTINF:-1 tvg-name="CCTV-3 综艺",CCTV-3 综艺
-http://38.75.136.137:98/gslb/dsdqbv/cctv3hd.m3u8?auth=test20251009
-#EXTGRP:央视频道
-#EXTINF:-1 tvg-name="CCTV-3 综艺",CCTV-3 综艺
 http://107.150.60.122/live/cctv3hd.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-3 综艺",CCTV-3 综艺
+http://38.75.136.137:98/gslb/dsdqpub/cctv3hd.m3u8?auth=testpub
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-3 综艺",CCTV-3 综艺
+http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv3hd
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-3 综艺",CCTV-3 综艺
 http://74.91.26.218:82/live/cctv3hd.m3u8
@@ -67,7 +73,13 @@ http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001186/index.m3u8
 https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV20.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-4 中文国际",CCTV-4 中文国际
+http://38.75.136.137:98/gslb/dsdqbv/cctv4hd.m3u8?auth=test20251009
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-4 中文国际",CCTV-4 中文国际
 http://107.150.60.122/live/cctv4hd.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-4 中文国际",CCTV-4 中文国际
+http://74.91.26.218:82/live/cctv4hd.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-4 中文国际",CCTV-4 中文国际
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv4hd
@@ -82,10 +94,10 @@ http://207.56.13.146:81/cdnlive/cctv4.m3u8
 http://198.204.228.26/live/cctv4hd.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-4 中文国际",CCTV-4 中文国际
-https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv4_mbd.m3u8?auth_key=1786482000-1-b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c-f5b66d14656cfb55d6c11a37289c1159&yid=b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c
+https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv4_mbd.m3u8?auth_key=1786557600-1-b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c-b01537ee18b84f87923f3eb08fcd4965&yid=b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-4 中文国际",CCTV-4 中文国际
-https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv4k_mbd.m3u8?auth_key=1786482000-1-b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c-5b97d84001a7db50c16148f7f033db60&yid=b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c
+https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv4k_mbd.m3u8?auth_key=1786557600-1-b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c-6b80baf8fddcf522794373ba43058197&yid=b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-4 中文国际",CCTV-4 中文国际
 https://cctvtxyh5ca.liveplay.myqcloud.com/live/cctv4_2/index.m3u8
@@ -97,19 +109,28 @@ https://cctvtxyh5ca.liveplay.myqcloud.com/live/cctveurope_2/index.m3u8
 https://cctvtxyh5ca.liveplay.myqcloud.com/live/cctvamerica_2/index.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-4 中文国际",CCTV-4 中文国际
+http://107.150.60.122/live/cctv4k.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-4 中文国际",CCTV-4 中文国际
 http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226335/1.m3u8?
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-4 中文国际",CCTV-4 中文国际
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001221/index.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-5 体育",CCTV-5 体育
+http://38.75.136.137:98/gslb/dsdqbv/cctv5hd.m3u8?auth=test20251009
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-5 体育",CCTV-5 体育
+http://107.150.60.122/live/cctv5hd.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-5 体育",CCTV-5 体育
+http://38.75.136.137:98/gslb/dsdqpub/cctv5hd.m3u8?auth=testpub
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-5 体育",CCTV-5 体育
 http://198.204.228.26/live/cctv5p.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-5 体育",CCTV-5 体育
 http://38.75.136.137:98/gslb/dsdqpub/cctv5p.m3u8?auth=testpub
-#EXTGRP:央视频道
-#EXTINF:-1 tvg-name="CCTV-5 体育",CCTV-5 体育
-http://38.75.136.137:98/gslb/dsdqpub/cctv5hd.m3u8?auth=testpub
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-5 体育",CCTV-5 体育
 http://207.56.13.146:81/cdnlive/cctv5.m3u8
@@ -128,6 +149,12 @@ http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001187/index.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-5 体育",CCTV-5 体育
 http://[2409:8087:1a01:df::4077]/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226019/index.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-6 电影",CCTV-6 电影
+http://38.75.136.137:98/gslb/dsdqbv/cctv6hd.m3u8?auth=test20251009
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-6 电影",CCTV-6 电影
+http://107.150.60.122/live/cctv6hd.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-6 电影",CCTV-6 电影
 http://74.91.26.218:82/live/cctv6hd.m3u8
@@ -154,6 +181,12 @@ http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001188/index.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-7 国防军事",CCTV-7 国防军事
+http://38.75.136.137:98/gslb/dsdqbv/cctv7hd.m3u8?auth=test20251009
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-7 国防军事",CCTV-7 国防军事
+http://107.150.60.122/live/cctv7hd.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-7 国防军事",CCTV-7 国防军事
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv7hd
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-7 国防军事",CCTV-7 国防军事
@@ -163,9 +196,6 @@ http://69.30.245.50/live/cctv7.m3u8
 http://207.56.13.146:81/cdnlive/cctv7.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-7 国防军事",CCTV-7 国防军事
-http://107.150.60.122/live/cctv7hd.m3u8
-#EXTGRP:央视频道
-#EXTINF:-1 tvg-name="CCTV-7 国防军事",CCTV-7 国防军事
 http://198.204.228.26/live/cctv7hd.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-7 国防军事",CCTV-7 国防军事
@@ -173,6 +203,12 @@ http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-7 国防军事",CCTV-7 国防军事
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001236/index.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-8 电视剧",CCTV-8 电视剧
+http://107.150.60.122/live/cctv8hd.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-8 电视剧",CCTV-8 电视剧
+http://38.75.136.137:98/gslb/dsdqbv/cctv8hd.m3u8?auth=test20251009
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-8 电视剧",CCTV-8 电视剧
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv8k
@@ -193,10 +229,22 @@ http://69.30.245.50/live/cctv8.m3u8
 https://cctvtxyh5ca.liveplay.myqcloud.com/live/cctv8_2/index.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-8 电视剧",CCTV-8 电视剧
+http://107.150.60.122/live/cctv8k.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-8 电视剧",CCTV-8 电视剧
 http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226485/1.m3u8?
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-8 电视剧",CCTV-8 电视剧
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001189/index.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-9 纪录",CCTV-9 纪录
+http://38.75.136.137:98/gslb/dsdqbv/cctv9hd.m3u8?auth=test20251009
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-9 纪录",CCTV-9 纪录
+http://107.150.60.122/live/cctv9hd.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-9 纪录",CCTV-9 纪录
+http://38.75.136.137:98/gslb/dsdqpub/cctv9hd.m3u8?auth=testpub
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-9 纪录",CCTV-9 纪录
 http://74.91.26.218:82/live/cctv9hd.m3u8
@@ -214,7 +262,7 @@ http://192.151.150.154/live/cctv9hd.m3u8
 http://69.30.245.50/live/cctv9.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-9 纪录",CCTV-9 纪录
-https://v4-702cae17a28d6e4f0c0002bba021d934.livehwc4.com/play.kankanlive.com/live/1698423397390920.m3u8?sub_m3u8=true&edge_slice=true&user_session_id=df515b7b418952bc36c9afacc6a0fc7a
+https://v4-e6b1c5baf4e240fe63adbf68dda23435.livehwc4.com/play.kankanlive.com/live/1698423397390920.m3u8?sub_m3u8=true&edge_slice=true&user_session_id=62a643a608f01a96676a29bd213ffabc
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-9 纪录",CCTV-9 纪录
 http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226944/1.m3u8?
@@ -223,10 +271,13 @@ http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001237/index.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-10 科教",CCTV-10 科教
-http://198.204.228.26/live/cctv10hd.m3u8
+http://38.75.136.137:98/gslb/dsdqbv/cctv10hd.m3u8?auth=test20251009
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-10 科教",CCTV-10 科教
-http://38.75.136.137:98/gslb/dsdqbv/cctv10hd.m3u8?auth=test20251009
+http://107.150.60.122/live/cctv10hd.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-10 科教",CCTV-10 科教
+http://198.204.228.26/live/cctv10hd.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-10 科教",CCTV-10 科教
 http://69.30.245.50/live/cctv10.m3u8
@@ -250,6 +301,12 @@ http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001238/index.m3u8
 http://38.75.136.137:98/gslb/dsdqbv/cctv11hd.m3u8?auth=test20251009
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-11 戏曲",CCTV-11 戏曲
+http://107.150.60.122/live/cctv11hd.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-11 戏曲",CCTV-11 戏曲
+http://120.211.62.180:8000/hls/11/index.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-11 戏曲",CCTV-11 戏曲
 http://38.75.136.137:98/gslb/dsdqpub/cctv11hd.m3u8?auth=testpub
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-11 戏曲",CCTV-11 戏曲
@@ -268,16 +325,16 @@ http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001309/index.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-12 社会与法",CCTV-12 社会与法
-http://38.75.136.137:98/gslb/dsdqpub/cctv12hd.m3u8?auth=testpub
-#EXTGRP:央视频道
-#EXTINF:-1 tvg-name="CCTV-12 社会与法",CCTV-12 社会与法
-http://74.91.26.218:82/live/cctv12hd.m3u8
+http://38.75.136.137:98/gslb/dsdqbv/cctv12hd.m3u8?auth=test20251009
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-12 社会与法",CCTV-12 社会与法
 http://107.150.60.122/live/cctv12hd.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-12 社会与法",CCTV-12 社会与法
-http://38.75.136.137:98/gslb/dsdqbv/cctv12hd.m3u8?auth=test20251009
+http://38.75.136.137:98/gslb/dsdqpub/cctv12hd.m3u8?auth=testpub
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-12 社会与法",CCTV-12 社会与法
+http://74.91.26.218:82/live/cctv12hd.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-12 社会与法",CCTV-12 社会与法
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv12hd
@@ -292,10 +349,13 @@ http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001239/index.m3u8
 http://38.75.136.137:98/gslb/dsdqbv/cctv13hd.m3u8?auth=test20251009
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-13 新闻",CCTV-13 新闻
-http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv13hd
+http://107.150.60.122/live/cctv13hd.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-13 新闻",CCTV-13 新闻
 http://74.91.26.218:82/live/cctv13hd.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-13 新闻",CCTV-13 新闻
+http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv13hd
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-13 新闻",CCTV-13 新闻
 http://bztv.tvbus.cc:8081/cdnlive/cctv13.m3u8
@@ -313,6 +373,12 @@ http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001328/index.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-14 少儿",CCTV-14 少儿
+http://38.75.136.137:98/gslb/dsdqbv/cctv14hd.m3u8?auth=test20251009
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-14 少儿",CCTV-14 少儿
+http://107.150.60.122/live/cctv14hd.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-14 少儿",CCTV-14 少儿
 http://74.91.26.218:82/live/cctv14hd.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-14 少儿",CCTV-14 少儿
@@ -325,9 +391,6 @@ http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv14hd
 http://198.204.228.26/live/cctv14hd.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-14 少儿",CCTV-14 少儿
-http://38.75.136.137:98/gslb/dsdqbv/cctv14hd.m3u8?auth=test20251009
-#EXTGRP:央视频道
-#EXTINF:-1 tvg-name="CCTV-14 少儿",CCTV-14 少儿
 https://cctvtxyh5ca.liveplay.myqcloud.com/live/cctvchild_2/index.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-14 少儿",CCTV-14 少儿
@@ -338,6 +401,9 @@ http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001240/index.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-15 音乐",CCTV-15 音乐
 http://38.75.136.137:98/gslb/dsdqbv/cctv15hd.m3u8?auth=test20251009
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-15 音乐",CCTV-15 音乐
+http://107.150.60.122/live/cctv15hd.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-15 音乐",CCTV-15 音乐
 http://192.151.150.154/live/cctv15hd.m3u8
@@ -370,6 +436,12 @@ http://[2409:8087:1a0a:df::404b]/ottrrs.hl.chinamobile.com/TVOD/88888888/224/322
 http://38.75.136.137:98/gslb/dsdqbv/cctv16hd.m3u8?auth=test20251009
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-16 奥林匹克",CCTV-16 奥林匹克
+http://107.150.60.122/live/cctv16hd.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-16 奥林匹克",CCTV-16 奥林匹克
+http://38.75.136.137:98/gslb/dsdqpub/cctv16hd.m3u8?auth=testpub
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-16 奥林匹克",CCTV-16 奥林匹克
 http://207.56.13.146:81/cdnlive/cctv16.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-16 奥林匹克",CCTV-16 奥林匹克
@@ -388,13 +460,16 @@ http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001258/index.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-17 农业农村",CCTV-17 农业农村
-http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv17hd
-#EXTGRP:央视频道
-#EXTINF:-1 tvg-name="CCTV-17 农业农村",CCTV-17 农业农村
 http://38.75.136.137:98/gslb/dsdqbv/cctv17hd.m3u8?auth=test20251009
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-17 农业农村",CCTV-17 农业农村
+http://107.150.60.122/live/cctv17hd.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-17 农业农村",CCTV-17 农业农村
 http://74.91.26.218:82/live/cctv17hd.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-17 农业农村",CCTV-17 农业农村
+http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv17hd
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-17 农业农村",CCTV-17 农业农村
 http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226318/1.m3u8?
@@ -475,6 +550,9 @@ http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001033/index.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="广东卫视",广东卫视
+https://piccpndks.v.kcdnvip.com/audio/guangdong_2/index.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="广东卫视",广东卫视
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gdwshd
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="广东卫视",广东卫视
@@ -542,6 +620,9 @@ http://198.204.228.26/live/scwshd.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="四川卫视",四川卫视
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=scwshd
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="四川卫视",四川卫视
+http://38.75.136.137:98/gslb/dsdqpub/scwshd.m3u8?auth=testpub
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="四川卫视",四川卫视
 http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226995/1.m3u8?GuardEncType=2&accountinfo=%7E%7EV2.0%7EBQiz3wrGrpG0CUSRIJ-7Jg%7EtP4-l0lmSfjwLWEfK_el1vH_mv-s1zo4AQJwdedaVwG9xkuFTDg8J26cwOrNJzn20BErrHdLhuZ9EzLUCD3PMW-OMx4MGteHV2vLeW6BqoY%2CEND
@@ -652,9 +733,6 @@ http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001183/index.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="广西卫视",广西卫视
-https://piccpndks.v.kcdnvip.com/audio/guangxi_2/index.m3u8
-#EXTGRP:卫视频道
-#EXTINF:-1 tvg-name="广西卫视",广西卫视
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gxwshd
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="广西卫视",广西卫视
@@ -688,6 +766,9 @@ http://192.151.150.154/live/hewshd.m3u8
 http://204.12.221.218:8181/3m1080p/hews.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="河北卫视",河北卫视
+http://120.211.62.180:8000/hls/19/index.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="河北卫视",河北卫视
 http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221227014/1.m3u8?GuardEncType=2&accountinfo=%7E%7EV2.0%7ErSGjhI3DMaaAASPrbQJYTg%7EtP4-l0lmSfjwLWEfK_el1vH_mv-s1zo4AQJwdedaVwG9xkuFTDg8J26cwOrNJzn20BErrHdLhuZ9EzLUCD3PMW-OMx4MGteHV2vLeW6BqoY%2CEND
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="河北卫视",河北卫视
@@ -715,6 +796,9 @@ http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001028/index.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="山西卫视",山西卫视
+https://livehhhttps.sxrtv.com/lsdream/lce1mC4/800/r4thcg1.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="山西卫视",山西卫视
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=sxwshd
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="山西卫视",山西卫视
@@ -722,6 +806,9 @@ http://107.150.60.122/live/sxwshd.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="山西卫视",山西卫视
 http://198.204.228.26/live/sxwshd.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="山西卫视",山西卫视
+http://222.169.85.8:9901/tsfile/live/0118_1.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="山西卫视",山西卫视
 http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221227016/1.m3u8?GuardEncType=2&accountinfo=%7E%7EV2.0%7ESb5Qr3NTpE2ZugIroKoyTw%7EtP4-l0lmSfjwLWEfK_el1vH_mv-s1zo4AQJwdedaVwG9xkuFTDg8J26cwOrNJzn20BErrHdLhuZ9EzLUCD3PMW-OMx4MGteHV2vLeW6BqoY%2CEND
@@ -862,6 +949,9 @@ http://198.204.228.26/live/ahwshd.m3u8
 http://107.150.60.122/live/ahwshd.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="安徽卫视",安徽卫视
+http://38.75.136.137:98/gslb/dsdqpub/ahwshd.m3u8?auth=testpub
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="安徽卫视",安徽卫视
 http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226943/1.m3u8?GuardEncType=2&accountinfo=%7E%7EV2.0%7E0QmKQ_slRCwvVVUUfxPVbw%7EtP4-l0lmSfjwLWEfK_el1vH_mv-s1zo4AQJwdedaVwG9xkuFTDg8J26cwOrNJzn20BErrHdLhuZ9EzLUCD3PMW-OMx4MGteHV2vLeW6BqoY%2CEND
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="安徽卫视",安徽卫视
@@ -940,6 +1030,9 @@ http://107.150.60.122/live/nmgws.m3u8
 http://198.204.228.26/live/nmgws.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="内蒙古卫视",内蒙古卫视
+http://182.150.23.74:808/hls/37/index.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="内蒙古卫视",内蒙古卫视
 http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221227018/1.m3u8?GuardEncType=2&accountinfo=%7E%7EV2.0%7ErN_hoRDwApMKnJqiNHvn9w%7EtP4-l0lmSfjwLWEfK_el1vH_mv-s1zo4AQJwdedaVwG9xkuFTDg8J26cwOrNJzn20BErrHdLhuZ9EzLUCD3PMW-OMx4MGteHV2vLeW6BqoY%2CEND
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="内蒙古卫视",内蒙古卫视
@@ -953,6 +1046,9 @@ http://198.204.228.26/live/xjws.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="新疆卫视",新疆卫视
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=xjws
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="新疆卫视",新疆卫视
+http://218.84.12.186:8001/hls/main/playlist.m3u8?zxinjd%3Bhttp://218.84.12.186:8001/hls/main/playlist.m3u8zxinjd
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="新疆卫视",新疆卫视
 http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221227011/1.m3u8?GuardEncType=2&accountinfo=%7E%7EV2.0%7ExAUu61iVvo_xYbANWJhgXw%7EtP4-l0lmSfjwLWEfK_el1vH_mv-s1zo4AQJwdedaVwG9xkuFTDg8J26cwOrNJzn20BErrHdLhuZ9EzLUCD3PMW-OMx4MGteHV2vLeW6BqoY%2CEND
@@ -994,6 +1090,9 @@ https://srs.iyb983.cn/video/CYS/index.m3u8
 https://srs.iyb983.cn:443/video/CYS/index.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="延边卫视",延边卫视
+https://srs.iyb983.cn/video/ybtv1/index.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="延边卫视",延边卫视
 http://[2409:8087:8:21::18]:6610/otttv.bj.chinamobile.com/PLTV/88888888/224/3221227045/1.m3u8?GuardEncType=2&accountinfo=%7E%7EV2.0%7Eq0D3NdTUN7FuRzr8eJsbQA%7EtP4-l0lmSfjwLWEfK_el1vH_mv-s1zo4AQJwdedaVwG9xkuFTDg8J26cwOrNJzn20BErrHdLhuZ9EzLUCD3PMW-OMx4MGteHV2vLeW6BqoY%2CEND
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="康巴卫视",康巴卫视
@@ -1024,6 +1123,9 @@ http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001348/index.m3u8
 http://38.75.136.137:98/gslb/dsdqbv/cctv5p.m3u8?auth=test20251009
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-5+ 体育赛事",CCTV-5+ 体育赛事
+http://107.150.60.122/live/cctv5p.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-5+ 体育赛事",CCTV-5+ 体育赛事
 http://[2409:8087:1a01:df::4077]/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221225603/index.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-5+ 体育赛事",CCTV-5+ 体育赛事
@@ -1043,6 +1145,9 @@ http://173.208.212.130:8181/720p/haws.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="河南卫视",河南卫视
 http://204.12.221.218:8181/3m1080p/haws.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="河南卫视",河南卫视
+http://38.75.136.137:98/gslb/dsdqpub/hawshd.m3u8?auth=testpub
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="河南卫视",河南卫视
 http://[2409:8087:1e03:21::2]:6060/cms001/ch00000090990000001222/index.m3u8
@@ -1081,6 +1186,9 @@ http://38.75.136.137:98/gslb/dsdqpub/nfws.m3u8?auth=testpub
 http://198.204.228.26/live/nfws.m3u8
 #EXTGRP:央视频道
 #EXTINF:-1 tvg-name="CCTV-8K 超高清",CCTV-8K 超高清
+http://38.75.136.137:98/gslb/dsdqpub/cctv8k.m3u8?auth=testpub
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-8K 超高清",CCTV-8K 超高清
 http://[2409:8087:2001:20:2800:0:df6e:eb02]:80/wh7f454c46tw2749731958_105918260/ott.mobaibox.com/PLTV/3/224/3221228165/index.m3u8?icpid=3&RTS=1681529690&from=40&popid=40&hms_devid=2039&prioritypopid=40&vqe=3
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="三沙卫视",三沙卫视
@@ -1115,6 +1223,12 @@ http://[2409:8087:5e01:34::23]:6610/ZTE_CMS/00000001000000060000000000000193/ind
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="人间卫视",人间卫视
 http://61.216.67.119:1935/bltvhd/bltv1/chunklist_w1266569526.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="人间卫视",人间卫视
+https://5ddce30eb4b55.streamlock.net/bltvhd/bltv1/chunklist_w511254805.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="人间卫视",人间卫视
+https://5ddce30eb4b55.streamlock.net/bltvhd/bltv1/playlist.m3u8
 #EXTGRP:福建频道
 #EXTINF:-1 tvg-name="福建东南广播",福建东南广播
 https://satellitepull.cnr.cn/live/wx32fjdngb/playlist.m3u8
@@ -1242,6 +1356,9 @@ https://stream1.freetv.fun/fu-jian-shao-er-2.m3u8
 #EXTINF:-1 tvg-name="凤凰卫视",凤凰卫视
 http://php.jdshipin.com/TVOD/iptv.php?id=fhzw
 #EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="凤凰卫视",凤凰卫视
+http://221.7.175.154:8445/tsfile/live/1020_1.m3u8
+#EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="星空卫视",星空卫视
 https://stream1.freetv.fun/xing-kong-wei-shi-12.m3u8
 #EXTGRP:卫视频道
@@ -1253,3 +1370,111 @@ https://stream1.freetv.fun/xing-kong-wei-shi-10.m3u8
 #EXTGRP:卫视频道
 #EXTINF:-1 tvg-name="星空卫视",星空卫视
 https://stream1.freetv.fun/xing-kong-wei-shi-11.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="星空卫视",星空卫视
+http://122.224.58.42:85/tsfile/live/1024_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="星空卫视",星空卫视
+http://xhyx.gz.cn:1698/hls/35/index.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="江苏卫视HD",江苏卫视HD
+http://107.150.60.122/live/jswshd.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="浙江卫视HD",浙江卫视HD
+http://107.150.60.122/live/zjwshd.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="湖南卫视HD",湖南卫视HD
+http://107.150.60.122/live/hnwshd.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="广东卫视HD",广东卫视HD
+http://107.150.60.122/live/gdwshd.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="东方卫视HD",东方卫视HD
+http://107.150.60.122/live/dfwshd.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="深圳卫视HD",深圳卫视HD
+http://107.150.60.122/live/szwshd.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="山东卫视HD",山东卫视HD
+http://107.150.60.122/live/sdwshd.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="天津卫视HD",天津卫视HD
+http://107.150.60.122/live/tjwshd.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="湖北卫视HD",湖北卫视HD
+http://107.150.60.122/live/hbwshd.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="重庆卫视HD",重庆卫视HD
+http://107.150.60.122/live/cqwshd.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="辽宁卫视HD",辽宁卫视HD
+http://107.150.60.122/live/lnwshd.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="东南卫视HD",东南卫视HD
+http://107.150.60.122/live/dnwshd.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="广西卫视HD",广西卫视HD
+http://107.150.60.122/live/gxwshd.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="陕西卫视HD",陕西卫视HD
+http://107.150.60.122/live/snwshd.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-央视文化精品",CCTV-央视文化精品
+http://107.150.60.122/live/ysjp.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV-卫生健康",CCTV-卫生健康
+http://107.150.60.122/live/wsjk.m3u8
+#EXTGRP:福建频道
+#EXTINF:-1 tvg-name="中国教育3",中国教育3
+http://107.150.60.122/live/cetv3.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="华藏卫视",华藏卫视
+https://5ddce30eb4b55.streamlock.net/HZTV/HZTV/playlist.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV+",CCTV+
+https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL1.smil/playlist.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV+",CCTV+
+https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL2.smil/playlist.m3u8
+#EXTGRP:卫视频道
+#EXTINF:-1 tvg-name="延边卫视频道",延边卫视频道
+https://srs.iyb983.cn/video/CYS/index.m3u8
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV风云足球",CCTV风云足球
+http://38.75.136.137:98/gslb/dsdqpub/fyzq.m3u8?auth=testpub
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV高尔夫网球",CCTV高尔夫网球
+http://38.75.136.137:98/gslb/dsdqpub/gefwq.m3u8?auth=testpub
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV央视台球",CCTV央视台球
+http://38.75.136.137:98/gslb/dsdqpub/ystq.m3u8?auth=testpub
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV风云剧场",CCTV风云剧场
+http://38.75.136.137:98/gslb/dsdqpub/fyjc.m3u8?auth=testpub
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV第一剧场",CCTV第一剧场
+http://38.75.136.137:98/gslb/dsdqpub/dyjc.m3u8?auth=testpub
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV怀旧剧场",CCTV怀旧剧场
+http://38.75.136.137:98/gslb/dsdqpub/hjjc.m3u8?auth=testpub
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV世界地理",CCTV世界地理
+http://38.75.136.137:98/gslb/dsdqpub/sjdl.m3u8?auth=testpub
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV女性时尚",CCTV女性时尚
+http://38.75.136.137:98/gslb/dsdqpub/nxss.m3u8?auth=testpub
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV风云音乐",CCTV风云音乐
+http://38.75.136.137:98/gslb/dsdqpub/fyyy.m3u8?auth=testpub
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV卫生健康",CCTV卫生健康
+http://38.75.136.137:98/gslb/dsdqpub/wsjk.m3u8?auth=testpub
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV兵器科技",CCTV兵器科技
+http://38.75.136.137:98/gslb/dsdqpub/gfjs.m3u8?auth=testpub
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV文化精品",CCTV文化精品
+http://38.75.136.137:98/gslb/dsdqpub/ysjp.m3u8?auth=testpub
+#EXTGRP:央视频道
+#EXTINF:-1 tvg-name="CCTV电视指南",CCTV电视指南
+http://38.75.136.137:98/gslb/dsdqpub/dszn.m3u8?auth=testpub
