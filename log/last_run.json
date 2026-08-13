@@ -1,5 +1,5 @@
 {
-  "time": "2026-08-12 05:23:39",
+  "time": "2026-08-13 05:27:57",
   "source_count": 10,
   "merged": 112,
   "per_source": {
@@ -25,7 +25,7 @@
     },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 66
+      "channels": 68
     },
     "Guovin": {
       "status": "ok",
