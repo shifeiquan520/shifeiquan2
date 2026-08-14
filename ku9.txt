@@ -1,22 +1,21 @@
-# 更新时间: 2026-08-14 15:34:23
+# 更新时间: 2026-08-14 07:37:15
 
 央视频道,#genre#
-CCTV-1 综合,http://124.228.160.210:9901/tsfile/live/0017_1.m3u8?key=txiptv&playlive=1&authid=0#http://74.91.26.218:82/live/cctv1hd.m3u8#http://101.66.199.102:9901/tsfile/live/0001_1.m3u8?key=txiptv&playlive=0&authid=0
-CCTV-2 财经,http://124.228.160.210:9901/tsfile/live/0018_1.m3u8?key=txiptv&playlive=1&authid=0#http://101.66.199.102:9901/tsfile/live/0002_1.m3u8?key=txiptv&playlive=0&authid=0
-CCTV-3 综艺,http://124.228.160.210:9901/tsfile/live/0019_1.m3u8?key=txiptv&playlive=1&authid=0#http://74.91.26.218:82/live/cctv3hd.m3u8#http://101.66.199.102:9901/tsfile/live/0003_1.m3u8?key=txiptv&playlive=0&authid=0
-CCTV-4 中文国际,https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv4k_mbd.m3u8?auth_key=1786744800-1-b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c-725c42371fa74abd95121fbd66b88514&yid=b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c#https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv4_mbd.m3u8?auth_key=1786744800-1-b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c-4285d280531412de0d9f81a10d09552e&yid=b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c#http://124.228.160.210:9901/tsfile/live/0004_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV-1 综合,http://74.91.26.218:82/live/cctv1hd.m3u8#http://124.228.160.210:9901/tsfile/live/0017_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV-3 综艺,http://124.228.160.210:9901/tsfile/live/0019_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV-4 中文国际,https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv4_mbd.m3u8?auth_key=1786744800-1-b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c-4285d280531412de0d9f81a10d09552e&yid=b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c#https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv4k_mbd.m3u8?auth_key=1786744800-1-b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c-725c42371fa74abd95121fbd66b88514&yid=b59134a2ead43d7f783f943c8f535e7bb80c5169575b2e8efcd5b3ddea21b41c#http://124.228.160.210:9901/tsfile/live/0004_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV-5+ 体育赛事,http://124.228.160.210:9901/tsfile/live/0016_1.m3u8?key=txiptv&playlive=1&authid=0
-CCTV-6 电影,https://piccpndks.v.kcdnvip.com/audio/cctv6_2/index.m3u8#http://124.228.160.210:9901/tsfile/live/0006_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV-6 电影,http://124.228.160.210:9901/tsfile/live/0006_1.m3u8?key=txiptv&playlive=1&authid=0#https://piccpndks.v.kcdnvip.com/audio/cctv6_2/index.m3u8
 CCTV-7 国防军事,http://124.228.160.210:9901/tsfile/live/0007_1.m3u8?key=txiptv&playlive=1&authid=0
-CCTV-8 电视剧,http://124.228.160.210:9901/tsfile/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0#http://222.169.85.8:9901/tsfile/live/0008_1.m3u8
-CCTV-9 纪录,http://124.228.160.210:9901/tsfile/live/0009_1.m3u8?key=txiptv&playlive=1&authid=0#https://v4-e6b1c5baf4e240fe63adbf68dda23435.livehwc4.com/play.kankanlive.com/live/1698423397390920.m3u8?sub_m3u8=true&edge_slice=true&user_session_id=42874f10b5709f6c8aa3a302d9c5c571#http://74.91.26.218:82/live/cctv9hd.m3u8
-CCTV-10 科教,http://124.228.160.210:9901/tsfile/live/0010_1.m3u8?key=txiptv&playlive=1&authid=0#http://222.169.85.8:9901/tsfile/live/0010_1.m3u8
-CCTV-11 戏曲,http://124.228.160.210:9901/tsfile/live/0011_2.m3u8?key=txiptv&playlive=1&authid=0#http://120.211.62.180:8000/hls/11/index.m3u8
-CCTV-12 社会与法,http://124.228.160.210:9901/tsfile/live/0012_2.m3u8?key=txiptv&playlive=1&authid=0#http://74.91.26.218:82/live/cctv12hd.m3u8
-CCTV-13 新闻,http://124.228.160.210:9901/tsfile/live/0013_1.m3u8?key=txiptv&playlive=1&authid=0#http://120.76.248.139/live/bfgd/4200000067.m3u8
+CCTV-8 电视剧,http://124.228.160.210:9901/tsfile/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV-9 纪录,http://74.91.26.218:82/live/cctv9hd.m3u8#https://v4-e6b1c5baf4e240fe63adbf68dda23435.livehwc4.com/play.kankanlive.com/live/1698423397390920.m3u8?sub_m3u8=true&edge_slice=true&user_session_id=42874f10b5709f6c8aa3a302d9c5c571#http://124.228.160.210:9901/tsfile/live/0009_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV-10 科教,http://124.228.160.210:9901/tsfile/live/0010_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV-11 戏曲,http://120.211.62.180:8000/hls/11/index.m3u8#http://124.228.160.210:9901/tsfile/live/0011_2.m3u8?key=txiptv&playlive=1&authid=0
+CCTV-12 社会与法,http://74.91.26.218:82/live/cctv12hd.m3u8#http://124.228.160.210:9901/tsfile/live/0012_2.m3u8?key=txiptv&playlive=1&authid=0
+CCTV-13 新闻,http://120.76.248.139/live/bfgd/4200000067.m3u8#http://124.228.160.210:9901/tsfile/live/0013_1.m3u8?key=txiptv&playlive=1&authid=0
 
 卫视频道,#genre#
-东方卫视,http://124.228.160.210:9901/tsfile/live/1005_1.m3u8?key=txiptv&playlive=1&authid=0#https://txmov2.a.kwimgs.com/bs3/video-hls/5219953535631090825_hlsb.m3u8
+东方卫视,https://txmov2.a.kwimgs.com/bs3/video-hls/5219953535631090825_hlsb.m3u8#http://124.228.160.210:9901/tsfile/live/1005_1.m3u8?key=txiptv&playlive=1&authid=0
 北京卫视,http://124.228.160.210:9901/tsfile/live/0122_1.m3u8?key=txiptv&playlive=1&authid=0
 安徽卫视,http://124.228.160.210:9901/tsfile/live/0130_1.m3u8?key=txiptv&playlive=1&authid=0
 江苏卫视,http://124.228.160.210:9901/tsfile/live/0127_1.m3u8?key=txiptv&playlive=1&authid=0
@@ -25,15 +24,21 @@ CCTV-13 新闻,http://124.228.160.210:9901/tsfile/live/0013_1.m3u8?key=txiptv&pl
 河南卫视,http://173.208.212.130:8181/720p/haws.m3u8
 浙江卫视,http://124.228.160.210:9901/tsfile/live/0124_1.m3u8?key=txiptv&playlive=1&authid=0
 深圳卫视,http://124.228.160.210:9901/tsfile/live/0126_1.m3u8?key=txiptv&playlive=1&authid=0
-湖南卫视,http://hlsal-ldvt.qing.mgtv.com/nn_live/nn_x64/Y2RuZXhfaWQ9YWxfaGxzX2xkdnQmZT02OTE0NjA0JnY9MSZpZD1ITldTWkdTVCZzPTcwN2RiYTc2YzJjNmJmMTQ4MmUyZGYzOWU2NWM3YWFi/HNWSZGST.m3u8#http://124.228.160.210:9901/tsfile/live/0128_1.m3u8?key=txiptv&playlive=1&authid=0#https://txmov2.a.kwimgs.com/bs3/video-hls/5199687338554291078_hlsb.m3u8
+湖南卫视,https://txmov2.a.kwimgs.com/bs3/video-hls/5199687338554291078_hlsb.m3u8#http://hlsal-ldvt.qing.mgtv.com/nn_live/nn_x64/Y2RuZXhfaWQ9YWxfaGxzX2xkdnQmZT02OTE0NjA0JnY9MSZpZD1ITldTWkdTVCZzPTcwN2RiYTc2YzJjNmJmMTQ4MmUyZGYzOWU2NWM3YWFi/HNWSZGST.m3u8#http://124.228.160.210:9901/tsfile/live/0128_1.m3u8?key=txiptv&playlive=1&authid=0
 内蒙古卫视,http://182.150.23.74:808/hls/37/index.m3u8
 新疆卫视,http://218.84.12.186:8001/hls/main/playlist.m3u8?zxinjd%3Bhttp://218.84.12.186:8001/hls/main/playlist.m3u8zxinjd
-延边卫视,https://srs.iyb983.cn/video/CYS/index.m3u8#https://srs.iyb983.cn:443/video/CYS/index.m3u8#https://srs.iyb983.cn/video/ybtv1/index.m3u8
+延边卫视,https://srs.iyb983.cn/video/ybtv1/index.m3u8#https://srs.iyb983.cn/video/CYS/index.m3u8#https://srs.iyb983.cn:443/video/CYS/index.m3u8
+安多卫视,https://liveout.xntv.tv/a65jur/96iln2.m3u8
 凤凰资讯,http://221.7.175.154:8445/tsfile/live/1021_1.m3u8?key=txiptv&playlive=1&authid=0
-人间卫视,http://61.216.67.119:1935/bltvhd/bltv1/chunklist_w1266569526.m3u8#https://5ddce30eb4b55.streamlock.net/bltvhd/bltv1/chunklist_w511254805.m3u8
+人间卫视,https://5ddce30eb4b55.streamlock.net/bltvhd/bltv1/chunklist_w511254805.m3u8#http://61.216.67.119:1935/bltvhd/bltv1/chunklist_w1266569526.m3u8
+香港卫视,https://stream1.freetv.fun/c751876ae5ceaa0d82b5cf2badc152342aa92a4b45bf504d12ee45966b2fc644.ctv#https://stream1.freetv.fun/5335c88a9a7d8b74173b491f480d4f94e8d3bd596af54478106aa2399e6c7917.ctv
 凤凰卫视,http://221.7.175.154:8445/tsfile/live/1020_1.m3u8
-星空卫视,http://xhyx.gz.cn:1698/hls/35/index.m3u8#http://122.224.58.42:85/tsfile/live/1024_1.m3u8?key=txiptv&playlive=1&authid=0
+星空卫视,https://stream1.freetv.fun/xing-kong-wei-shi-12.m3u8#https://stream1.freetv.fun/xing-kong-wei-shi-10.m3u8#https://stream1.freetv.fun/xing-kong-wei-shi-4.ctv#https://stream1.freetv.fun/xing-kong-wei-shi-11.m3u8#http://xhyx.gz.cn:1698/hls/35/index.m3u8#http://122.224.58.42:85/tsfile/live/1024_1.m3u8?key=txiptv&playlive=1&authid=0
 延边卫视频道,https://srs.iyb983.cn/video/CYS/index.m3u8
 
 福建频道,#genre#
 东南卫视,http://124.228.160.210:9901/tsfile/live/0137_1.m3u8?key=txiptv&playlive=1&authid=0
+福建电视剧,https://stream1.freetv.fun/fu-jian-dian-shi-ju-3.m3u8#https://stream1.freetv.fun/fu-jian-dian-shi-ju-4.m3u8#https://stream1.freetv.fun/fu-jian-dian-shi-ju-1.m3u8#https://stream1.freetv.fun/fu-jian-dian-shi-ju-5.m3u8#https://stream1.freetv.fun/fu-jian-dian-shi-ju-2.m3u8
+福建综合,https://stream1.freetv.fun/fu-jian-zong-he-3.m3u8#https://stream1.freetv.fun/fu-jian-zong-he-1.m3u8#https://stream1.freetv.fun/fu-jian-zong-he-5.m3u8#https://stream1.freetv.fun/fu-jian-zong-he-6.m3u8#https://stream1.freetv.fun/fu-jian-zong-he-4.m3u8
+福建经视,https://stream1.freetv.fun/fu-jian-jing-ji-2.m3u8#https://stream1.freetv.fun/fu-jian-jing-ji-1.m3u8#https://stream1.freetv.fun/fu-jian-jing-ji-6.m3u8#https://stream1.freetv.fun/fu-jian-jing-ji-4.m3u8#https://stream1.freetv.fun/fu-jian-jing-ji-5.m3u8
+福建少儿,https://stream1.freetv.fun/fu-jian-shao-er-2.m3u8#https://stream1.freetv.fun/fu-jian-shao-er-7.m3u8#https://stream1.freetv.fun/fu-jian-shao-er-6.m3u8#https://stream1.freetv.fun/fu-jian-shao-er-4.m3u8#https://stream1.freetv.fun/fu-jian-shao-er-1.m3u8
