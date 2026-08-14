@@ -179,51 +179,95 @@ def is_ipv6_url(url):
     return bool(m)
 
 
-def strict_probe(url):
-    """严格探测: 只保留真正返回 #EXTM3U 播放列表的链接
-    前置条件: HTTP 200/206 且响应体包含 #EXTM3U
-    删除条件: 403/404/410/超时/DNS失败/连接拒绝/非m3u8 一律判死
+def speed_probe(url):
+    """测速探测: 确认 m3u8 可播并测量下载速度
+    步骤: 请求 m3u8 (200/206 + 含 #EXTM3U) -> 解析首个 .ts 片段 -> 下载片段测速
+    返回: (存活, 速度KB/s); 失败返回 (False, 0)
     """
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": UA, "Range": "bytes=0-2048"}, method="GET")
+        req = urllib.request.Request(url, headers={"User-Agent": UA, "Range": "bytes=0-4096"}, method="GET")
         with urllib.request.urlopen(req, timeout=STRICT_TIMEOUT) as r:
             if r.status not in (200, 206):
-                return False
-            data = r.read(4096)
-            return b"#EXTM3U" in data
+                return (False, 0.0)
+            data = r.read(8192)
+            if b"#EXTM3U" not in data:
+                return (False, 0.0)
     except urllib.error.HTTPError:
-        return False
+        return (False, 0.0)
     except Exception:
-        return False
+        return (False, 0.0)
+
+    # 解析 m3u8 中第一个片段地址
+    try:
+        base = url.rsplit("/", 1)[0] + "/"
+        seg = None
+        for line in data.decode("utf-8", errors="ignore").splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and (".ts" in line.lower() or "index" in line.lower()):
+                seg = line
+                break
+        if not seg:
+            return (False, 0.0)
+        if seg.startswith("http://") or seg.startswith("https://"):
+            ts_url = seg
+        elif seg.startswith("/"):
+            m2 = re.match(r'^(https?://[^/]+)', url)
+            ts_url = (m2.group(1) if m2 else "") + seg
+        else:
+            ts_url = base + seg
+    except Exception:
+        return (False, 0.0)
+
+    # 下载片段测速
+    try:
+        req2 = urllib.request.Request(ts_url, headers={"User-Agent": UA}, method="GET")
+        t0 = time.time()
+        with urllib.request.urlopen(req2, timeout=STRICT_TIMEOUT) as r2:
+            if r2.status not in (200, 206):
+                return (False, 0.0)
+            chunk = r2.read(65536)
+        dt = time.time() - t0
+        if dt <= 0:
+            return (False, 0.0)
+        speed = len(chunk) / 1024.0 / dt
+        return (True, speed)
+    except urllib.error.HTTPError:
+        return (False, 0.0)
+    except Exception:
+        return (False, 0.0)
+
+
+MAX_LINES_PER_CHANNEL = 8
 
 
 def filter_strict(channels):
-    """严格模式: 逐条验证 IPv4 链接, 只保留真 m3u8
-    线路排序: 已验证可播的 IPv4 排最前 -> 未验证的 IPv6 保留在后 -> 死链删除
+    """严格模式: 逐条测速, 只保留可播 m3u8
+    去除 IPv6; 每频道线路按测速降序; 每频道最多保留 MAX_LINES_PER_CHANNEL 条
     频道全部线路失效 -> 删除该频道
     """
-    ok_urls = set()
     tasks = []
     for ch in channels:
         for u in ch["urls"]:
             if not is_ipv6_url(u):
                 tasks.append(u)
+    speeds = {}
     if tasks:
         with concurrent.futures.ThreadPoolExecutor(max_workers=CHECK_CONCURRENCY) as ex:
-            futures = {ex.submit(strict_probe, u): u for u in tasks}
+            futures = {ex.submit(speed_probe, u): u for u in tasks}
             for fut in concurrent.futures.as_completed(futures):
                 u = futures[fut]
                 try:
-                    if fut.result():
-                        ok_urls.add(u)
+                    ok, spd = fut.result()
+                    if ok:
+                        speeds[u] = spd
                 except Exception:
                     pass
 
     alive = []
     for ch in channels:
-        verified = [u for u in ch["urls"] if not is_ipv6_url(u) and u in ok_urls]
-        ipv6 = [u for u in ch["urls"] if is_ipv6_url(u)]
-        urls = verified + ipv6
+        urls = [(u, speeds[u]) for u in ch["urls"] if not is_ipv6_url(u) and u in speeds]
+        urls.sort(key=lambda x: x[1], reverse=True)
+        urls = [u for u, _ in urls[:MAX_LINES_PER_CHANNEL]]
         if urls:
             ch["urls"] = urls
             alive.append(ch)

@@ -1,9 +1,10 @@
 {
   "sources": [
     {
-      "name": "fanmingming_ipv6",
-      "url": "https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u",
-      "type": "m3u",
+      "name": "ssili126_hotel",
+      "url": "https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt",
+      "type": "txt",
+      "encoding": "utf-8",
       "enabled": true
     },
     {

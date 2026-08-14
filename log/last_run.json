@@ -1,11 +1,11 @@
 {
-  "time": "2026-08-14 05:24:57",
+  "time": "2026-08-14 15:34:23",
   "source_count": 10,
-  "merged": 112,
+  "merged": 32,
   "per_source": {
-    "fanmingming_ipv6": {
+    "ssili126_hotel": {
       "status": "ok",
-      "channels": 82
+      "channels": 61
     },
     "zbefine": {
       "status": "ok",
@@ -25,7 +25,7 @@
     },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 70
+      "channels": 69
     },
     "Guovin": {
       "status": "ok",
