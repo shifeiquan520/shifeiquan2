@@ -1,11 +1,11 @@
 {
-  "time": "2026-08-14 10:05:56",
+  "time": "2026-08-15 04:20:00",
   "source_count": 10,
-  "merged": 118,
+  "merged": 119,
   "per_source": {
     "ssili126_hotel": {
       "status": "ok",
-      "channels": 61
+      "channels": 0
     },
     "zbefine": {
       "status": "ok",
@@ -17,7 +17,7 @@
     },
     "YanG": {
       "status": "ok",
-      "channels": 129
+      "channels": 127
     },
     "BigBigGrandG": {
       "status": "ok",
@@ -25,7 +25,7 @@
     },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 70
+      "channels": 68
     },
     "Guovin": {
       "status": "ok",
