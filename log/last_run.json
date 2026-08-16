@@ -1,11 +1,11 @@
 {
-  "time": "2026-08-15 04:20:00",
+  "time": "2026-08-16 04:26:10",
   "source_count": 10,
-  "merged": 119,
+  "merged": 118,
   "per_source": {
     "ssili126_hotel": {
       "status": "ok",
-      "channels": 0
+      "channels": 132
     },
     "zbefine": {
       "status": "ok",
@@ -25,7 +25,7 @@
     },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 68
+      "channels": 69
     },
     "Guovin": {
       "status": "ok",
