@@ -1,11 +1,11 @@
 {
-  "time": "2026-08-16 04:26:10",
+  "time": "2026-08-17 04:31:48",
   "source_count": 10,
   "merged": 118,
   "per_source": {
     "ssili126_hotel": {
       "status": "ok",
-      "channels": 132
+      "channels": 0
     },
     "zbefine": {
       "status": "ok",
