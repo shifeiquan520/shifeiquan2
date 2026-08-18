@@ -354,7 +354,7 @@ CCTV_SPECIAL = {
     "CCTV新闻动漫": "CCTV-新闻动漫",
     "CCTV鏂扮戝姩婕": "CCTV-新科动漫",
 }
-GROUP_ORDER = ["央视频道", "卫视频道", "福建频道"]
+GROUP_ORDER = ["央视频道", "卫视频道"]
 
 
 def normalize_cctv(name):
@@ -377,36 +377,20 @@ def normalize_cctv(name):
 
 
 def classify(name):
-    """按优先级分到三组, 其余返回 None"""
+    """按优先级分到两组, 其余返回 None"""
     if "广播" in name:
         return None
     if "云霄综合" in name or "三明新闻综合" in name:
         return None
     if re.match(r'^CCTV', name, re.I):
         return "央视频道"
-    if ("福建" in name or "厦门" in name or "海峡" in name or "福州" in name
-            or name.startswith("东南卫视")
-            or "CETV" in name.upper() or name.startswith("中国教育")):
-        return "福建频道"
     if "卫视" in name or "凤凰资讯" in name:
         return "卫视频道"
     return None
 
 
-def fujian_key(ch):
-    """福建频道组内排序: 福建*开头最上 -> 东南卫视 -> 教育类 -> 其余"""
-    name = ch["name"]
-    if name.startswith("福建"):
-        return (0, name)
-    if name.startswith("东南卫视"):
-        return (1, name)
-    if "CETV" in name.upper() or name.startswith("中国教育"):
-        return (2, name)
-    return (3, name)
-
-
 def filter_group(channels):
-    """统一 CCTV 名称 -> 分类 -> 只保留三组"""
+    """统一 CCTV 名称 -> 分类 -> 只保留央视/卫视两组"""
     kept = []
     for ch in channels:
         name = ch["name"]
@@ -477,7 +461,7 @@ def main():
 
     merged = filter_group(merged)
     merged = merge_dedupe(merged)  # CCTV 统一名称后再合并一次
-    print("过滤后(仅央视/卫视/福建): %d" % len(merged))
+    print("过滤后(仅央视/卫视): %d" % len(merged))
     from collections import Counter
     gc = Counter(ch["group"] for ch in merged)
     for g in GROUP_ORDER:
@@ -485,10 +469,6 @@ def main():
 
     if "--raw" in sys.argv:
         print("== raw 模式: 只抓取+分组, 不探测死链 ==")
-        fujian = [ch for ch in merged if ch["group"] == "福建频道"]
-        fujian.sort(key=fujian_key)
-        others = [ch for ch in merged if ch["group"] != "福建频道"]
-        merged = others + fujian
         with open(OUTPUT_RAW_TXT, "w", encoding="utf-8") as f:
             f.write(to_txt(merged))
         with open(OUTPUT_RAW_M3U, "w", encoding="utf-8") as f:
@@ -509,12 +489,6 @@ def main():
             print("开始宽松死链剔除(%d 条探测, 超时 %ds)... " % (len(merged), CHECK_TIMEOUT))
             merged = filter_dead(merged)
             print("剔除后剩余: %d" % len(merged))
-
-    # 福建频道组内排序(福建* -> 东南卫视 -> 教育 -> 其余)
-    fujian = [ch for ch in merged if ch["group"] == "福建频道"]
-    fujian.sort(key=fujian_key)
-    others = [ch for ch in merged if ch["group"] != "福建频道"]
-    merged = others + fujian
 
     with open(OUTPUT_TXT, "w", encoding="utf-8") as f:
         f.write(to_txt(merged))
