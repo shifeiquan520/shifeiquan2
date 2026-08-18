@@ -1,7 +1,7 @@
 {
-  "time": "2026-08-18 02:10:20",
-  "source_count": 7,
-  "merged": 105,
+  "time": "2026-08-18 11:22:51",
+  "source_count": 8,
+  "merged": 143,
   "per_source": {
     "ssili126_hotel": {
       "status": "ok",
@@ -17,7 +17,7 @@
     },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 69
+      "channels": 71
     },
     "vamoschuck": {
       "status": "ok",
@@ -30,6 +30,10 @@
     "nft6cf127_ku9": {
       "status": "ok",
       "channels": 815
+    },
+    "zilong_btv": {
+      "status": "ok",
+      "channels": 660
     }
   }
 }

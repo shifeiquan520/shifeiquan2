@@ -44,6 +44,12 @@
       "type": "txt",
       "encoding": "utf-8",
       "enabled": true
+    },
+    {
+      "name": "zilong_btv",
+      "url": "https://raw.githubusercontent.com/zilong7728/Collect-IPTV/main/best_sorted.m3u",
+      "type": "m3u",
+      "enabled": true
     }
   ]
 }

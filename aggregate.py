@@ -180,6 +180,41 @@ def is_ipv6_url(url):
     return bool(m)
 
 
+def _first_segment(data, url):
+    """从 m3u8 内容中解析第一个可下载片段地址, 支持嵌套子清单(#EXT-X-STREAM-INF)"""
+    try:
+        lines = [l.strip() for l in data.decode("utf-8", errors="ignore").splitlines() if l.strip()]
+    except Exception:
+        return None
+    for i, line in enumerate(lines):
+        if line.startswith("#"):
+            continue
+        if ".ts" in line.lower() or "index" in line.lower() or ".m3u8" in line.lower() or ".m3u" in line.lower():
+            return line
+    # 嵌套子清单: 找到 EXT-X-STREAM-INF 之后的子清单 URL 并继续解析
+    for i, line in enumerate(lines):
+        if line.startswith("#EXT-X-STREAM-INF") and i + 1 < len(lines):
+            child = lines[i + 1]
+            if not child.startswith("#") and ("://" in child or child.endswith(".m3u8") or child.endswith(".m3u")):
+                try:
+                    if child.startswith("http://") or child.startswith("https://"):
+                        curl = child
+                    elif child.startswith("/"):
+                        m2 = re.match(r'^(https?://[^/]+)', url)
+                        curl = (m2.group(1) if m2 else "") + child
+                    else:
+                        curl = url.rsplit("/", 1)[0] + "/" + child
+                    req = urllib.request.Request(curl, headers={"User-Agent": UA}, method="GET")
+                    with urllib.request.urlopen(req, timeout=SPEED_TIMEOUT) as r:
+                        if r.status not in (200, 206):
+                            return None
+                        cdata = r.read(8192)
+                    return _first_segment(cdata, curl)
+                except Exception:
+                    return None
+    return None
+
+
 def speed_probe(url):
     """测速探测: 确认 m3u8 可播并测量下载速度
     返回: (验证状态, 速度KB/s)
@@ -201,15 +236,9 @@ def speed_probe(url):
     except Exception:
         return ("time", 0.0)
 
-    # 解析 m3u8 中第一个片段地址
+    # 解析 m3u8 中第一个片段地址(支持嵌套子清单)
     try:
-        base = url.rsplit("/", 1)[0] + "/"
-        seg = None
-        for line in data.decode("utf-8", errors="ignore").splitlines():
-            line = line.strip()
-            if line and not line.startswith("#") and (".ts" in line.lower() or "index" in line.lower()):
-                seg = line
-                break
+        seg = _first_segment(data, url)
         if not seg:
             return ("http", 0.0)
         if seg.startswith("http://") or seg.startswith("https://"):
@@ -218,7 +247,7 @@ def speed_probe(url):
             m2 = re.match(r'^(https?://[^/]+)', url)
             ts_url = (m2.group(1) if m2 else "") + seg
         else:
-            ts_url = base + seg
+            ts_url = url.rsplit("/", 1)[0] + "/" + seg
     except Exception:
         return ("http", 0.0)
 
@@ -288,6 +317,9 @@ def filter_strict(channels):
         remaining = MAX_LINES_PER_CHANNEL - len(urls)
         if remaining > 0:
             urls += tmo[:remaining]
+        if not urls and http and len(ch["urls"]) == 1 and len(http) == 1:
+            # 单线路频道被探测判 http: 可能是探测环境误判, 降级保底保留
+            urls = http
         if urls:
             ch["urls"] = urls
             alive.append(ch)
@@ -348,9 +380,11 @@ def classify(name):
     """按优先级分到三组, 其余返回 None"""
     if "广播" in name:
         return None
+    if "云霄综合" in name or "三明新闻综合" in name:
+        return None
     if re.match(r'^CCTV', name, re.I):
         return "央视频道"
-    if ("福建" in name or "厦门" in name or "海峡" in name
+    if ("福建" in name or "厦门" in name or "海峡" in name or "福州" in name
             or name.startswith("东南卫视")
             or "CETV" in name.upper() or name.startswith("中国教育")):
         return "福建频道"
