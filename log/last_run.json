@@ -1,11 +1,15 @@
 {
-  "time": "2026-08-19 09:50:55",
-  "source_count": 8,
-  "merged": 87,
+  "time": "2026-08-19 18:35:30",
+  "source_count": 9,
+  "merged": 99,
   "per_source": {
-    "ssili126_hotel": {
+    "hepingcaizi_hotel": {
       "status": "ok",
-      "channels": 0
+      "channels": 1013
+    },
+    "hepingcaizi_weishi": {
+      "status": "ok",
+      "channels": 301
     },
     "bestfan_cctv": {
       "status": "ok",
@@ -17,7 +21,7 @@
     },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 66
+      "channels": 68
     },
     "vamoschuck": {
       "status": "ok",

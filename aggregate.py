@@ -355,7 +355,11 @@ CCTV_SPECIAL = {
     "CCTV鏂扮戝姩婕": "CCTV-新科动漫",
 }
 GROUP_ORDER = ["央视频道", "卫视频道"]
-SAT_SUFFIX_RE = re.compile(r'(4K|HD|\[高清\]|\[4K\]|高清|超清|频道|台)$', re.I)
+SAT_SUFFIX_RE = re.compile(r'(4K|HD|\[高清\]|\[4K\]|高清|超清|频道|CMIPTV|台)$', re.I)
+SAT_ALIASES = {
+    "内蒙卫视": "内蒙古卫视",
+    "上海卫视": "东方卫视",
+}
 SAT_ORDER = ["凤凰卫视", "凤凰资讯", "浙江卫视", "湖南卫视", "江苏卫视"]
 
 
@@ -412,6 +416,8 @@ def base_sat_name(name):
     凤凰系列按台别优先: 含"资讯" -> 凤凰资讯, 否则含"凤凰" -> 凤凰卫视
     """
     n = name.strip()
+    if n in SAT_ALIASES:
+        return SAT_ALIASES[n]
     if "凤凰" in n:
         if "资讯" in n:
             return "凤凰资讯"

@@ -1,8 +1,15 @@
 {
   "sources": [
     {
-      "name": "ssili126_hotel",
-      "url": "https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt",
+      "name": "hepingcaizi_hotel",
+      "url": "https://raw.githubusercontent.com/hepingcaizi/iptv/main/itvlist.txt",
+      "type": "txt",
+      "encoding": "utf-8",
+      "enabled": true
+    },
+    {
+      "name": "hepingcaizi_weishi",
+      "url": "https://raw.githubusercontent.com/hepingcaizi/iptv/main/weishi.txt",
       "type": "txt",
       "encoding": "utf-8",
       "enabled": true
