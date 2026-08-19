@@ -1,23 +1,27 @@
 {
-  "time": "2026-08-19 04:26:20",
+  "time": "2026-08-19 17:48:41",
   "source_count": 8,
-  "merged": 128,
+  "merged": 86,
   "per_source": {
     "ssili126_hotel": {
-      "status": "ok",
-      "channels": 0
+      "status": "err",
+      "channels": 0,
+      "error": "The read operation timed out"
     },
     "bestfan_cctv": {
-      "status": "ok",
-      "channels": 191
+      "status": "err",
+      "channels": 0,
+      "error": "The read operation timed out"
     },
     "bestfan_province": {
-      "status": "ok",
-      "channels": 234
+      "status": "err",
+      "channels": 0,
+      "error": "The read operation timed out"
     },
     "ChinaIPTV": {
-      "status": "ok",
-      "channels": 68
+      "status": "err",
+      "channels": 0,
+      "error": "The read operation timed out"
     },
     "vamoschuck": {
       "status": "ok",
@@ -33,7 +37,7 @@
     },
     "zilong_btv": {
       "status": "ok",
-      "channels": 644
+      "channels": 711
     }
   }
 }
