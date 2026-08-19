@@ -355,6 +355,8 @@ CCTV_SPECIAL = {
     "CCTV鏂扮戝姩婕": "CCTV-新科动漫",
 }
 GROUP_ORDER = ["央视频道", "卫视频道"]
+SAT_SUFFIX_RE = re.compile(r'(4K|HD|\[高清\]|\[4K\]|高清|超清|频道|台)$', re.I)
+SAT_ORDER = ["凤凰卫视", "凤凰资讯", "浙江卫视", "湖南卫视", "江苏卫视"]
 
 
 def normalize_cctv(name):
@@ -405,6 +407,52 @@ def filter_group(channels):
     return kept
 
 
+def base_sat_name(name):
+    """提取卫视主台名: 去常见后缀(4K/HD/[高清]/高清/超清/频道/尾部台)
+    凤凰系列按台别优先: 含"资讯" -> 凤凰资讯, 否则含"凤凰" -> 凤凰卫视
+    """
+    n = name.strip()
+    if "凤凰" in n:
+        if "资讯" in n:
+            return "凤凰资讯"
+        return "凤凰卫视"
+    while True:
+        m = SAT_SUFFIX_RE.search(n)
+        if not m:
+            break
+        cand = n[:m.start()].strip()
+        if len(cand) < 2 or not cand.endswith("卫视"):
+            break
+        n = cand
+    return n
+
+
+def merge_sat_variants(channels):
+    """卫视组内按主台名合并变体频道: 同一主台的线路合并去重, 变体频道删除, 主台名统一为无后缀主台名
+    保持频道的原始分组(分组可能混合央视/卫视, 由调用方只传卫视组)"""
+    by_base = {}
+    for ch in channels:
+        base = base_sat_name(ch["name"])
+        by_base.setdefault(base, []).append(ch)
+    merged = []
+    for base, chs in by_base.items():
+        urls = []
+        for c in chs:
+            for u in c["urls"]:
+                if u not in urls:
+                    urls.append(u)
+        merged.append({"name": base, "group": chs[0]["group"], "urls": urls})
+    return merged
+
+
+def sat_sort_key(ch):
+    """卫视组排序: 凤凰卫视/凤凰资讯最前, 浙江/湖南/江苏次之(固定序), 其余保持原序"""
+    base = base_sat_name(ch["name"])
+    if base in SAT_ORDER:
+        return (0, SAT_ORDER.index(base))
+    return (1, 0)
+
+
 def to_txt(channels):
     lines = ["# 更新时间: %s" % time.strftime("%Y-%m-%d %H:%M:%S"), ""]
     by_group = {}
@@ -414,8 +462,11 @@ def to_txt(channels):
     for g in GROUP_ORDER:
         if g not in by_group:
             continue
+        group_chs = by_group[g]
+        if g == "卫视频道":
+            group_chs = sorted(group_chs, key=sat_sort_key)
         lines.append("%s,#genre#" % g)
-        for ch in by_group[g]:
+        for ch in group_chs:
             lines.append("%s,%s" % (ch["name"], "#".join(ch["urls"])))
         lines.append("")
     return "\n".join(lines)
@@ -423,13 +474,22 @@ def to_txt(channels):
 
 def to_m3u(channels):
     lines = ["#EXTM3U"]
+    by_group = {}
     for ch in channels:
-        g = ch.get("group", "")
-        for u in ch["urls"]:
-            if g:
-                lines.append("#EXTGRP:%s" % g)
-            lines.append('#EXTINF:-1 tvg-name="%s",%s' % (ch["name"], ch["name"]))
-            lines.append(u)
+        g = ch.get("group", "") or ""
+        by_group.setdefault(g, []).append(ch)
+    for g in GROUP_ORDER:
+        if g not in by_group:
+            continue
+        group_chs = by_group[g]
+        if g == "卫视频道":
+            group_chs = sorted(group_chs, key=sat_sort_key)
+        for ch in group_chs:
+            for u in ch["urls"]:
+                if g:
+                    lines.append("#EXTGRP:%s" % g)
+                lines.append('#EXTINF:-1 tvg-name="%s",%s' % (ch["name"], ch["name"]))
+                lines.append(u)
     return "\n".join(lines)
 
 
@@ -461,6 +521,12 @@ def main():
 
     merged = filter_group(merged)
     merged = merge_dedupe(merged)  # CCTV 统一名称后再合并一次
+
+    sat_chs = [c for c in merged if c["group"] == "卫视频道"]
+    other_chs = [c for c in merged if c["group"] != "卫视频道"]
+    sat_chs = merge_sat_variants(sat_chs)
+    merged = other_chs + sat_chs
+    print("卫视变体合并后: %d" % len(merged))
     print("过滤后(仅央视/卫视): %d" % len(merged))
     from collections import Counter
     gc = Counter(ch["group"] for ch in merged)
