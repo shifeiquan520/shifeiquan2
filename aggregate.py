@@ -271,14 +271,16 @@ def speed_probe(url):
 
 
 MAX_LINES_PER_CHANNEL = 8
+MIN_SPEED_KBPS = 20
 
 
 def filter_strict(channels):
-    """保底式严格剔除:
+    """严格死链剔除:
     去除 IPv6; HTTP 错误码(403/404/410/5xx)判死删除;
-    超时/DNS/连接拒绝(可能只在特定网络可达)保留为保底线路, 排末尾;
-    每频道线路按: 可播(按速度降序)在前 -> 未验证保底在后; 每频道最多 MAX_LINES_PER_CHANNEL 条;
-    频道至少保留 1 条保底线路(不因探测环境误删频道); 全死(HTTP错误)才删除频道
+    超时/DNS/连接拒绝(无速度)直接剔除, 不做保底;
+    可播但速度低于 MIN_SPEED_KBPS 的剔除;
+    保留可播且达速线路, 按速度降序, 每频道最多 MAX_LINES_PER_CHANNEL 条;
+    频道所有线路无速度或全死则删除该频道
     """
     tasks = []
     for ch in channels:
@@ -298,28 +300,15 @@ def filter_strict(channels):
 
     alive = []
     for ch in channels:
-        ok, http, tmo = [], [], []
+        ok = []
         for u in ch["urls"]:
             if is_ipv6_url(u):
                 continue
             st, spd = results.get(u, ("time", 0.0))
-            if st == "ok":
+            if st == "ok" and spd >= MIN_SPEED_KBPS:
                 ok.append((u, spd))
-            elif st == "http":
-                http.append(u)
-            else:
-                tmo.append(u)
         ok.sort(key=lambda x: x[1], reverse=True)
-        ok = [u for u, _ in ok]
-        http_urls = set(http)
-        tmo = [u for u in tmo if u not in http_urls]
-        urls = ok[:MAX_LINES_PER_CHANNEL]
-        remaining = MAX_LINES_PER_CHANNEL - len(urls)
-        if remaining > 0:
-            urls += tmo[:remaining]
-        if not urls and http and len(ch["urls"]) == 1 and len(http) == 1:
-            # 单线路频道被探测判 http: 可能是探测环境误判, 降级保底保留
-            urls = http
+        urls = [u for u, _ in ok[:MAX_LINES_PER_CHANNEL]]
         if urls:
             ch["urls"] = urls
             alive.append(ch)

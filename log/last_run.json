@@ -1,7 +1,7 @@
 {
-  "time": "2026-08-19 10:40:16",
+  "time": "2026-08-20 10:17:04",
   "source_count": 9,
-  "merged": 99,
+  "merged": 59,
   "per_source": {
     "hepingcaizi_hotel": {
       "status": "ok",
@@ -13,15 +13,15 @@
     },
     "bestfan_cctv": {
       "status": "ok",
-      "channels": 191
+      "channels": 107
     },
     "bestfan_province": {
       "status": "ok",
-      "channels": 234
+      "channels": 172
     },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 68
+      "channels": 65
     },
     "vamoschuck": {
       "status": "ok",
@@ -37,7 +37,7 @@
     },
     "zilong_btv": {
       "status": "ok",
-      "channels": 711
+      "channels": 702
     }
   }
 }
