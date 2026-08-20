@@ -1,15 +1,17 @@
 {
-  "time": "2026-08-20 02:21:52",
+  "time": "2026-08-20 04:26:10",
   "source_count": 9,
-  "merged": 59,
+  "merged": 60,
   "per_source": {
     "hepingcaizi_hotel": {
-      "status": "ok",
-      "channels": 1013
+      "status": "err",
+      "channels": 0,
+      "error": "HTTP Error 404: Not Found"
     },
     "hepingcaizi_weishi": {
-      "status": "ok",
-      "channels": 301
+      "status": "err",
+      "channels": 0,
+      "error": "HTTP Error 404: Not Found"
     },
     "bestfan_cctv": {
       "status": "ok",
@@ -21,7 +23,7 @@
     },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 65
+      "channels": 68
     },
     "vamoschuck": {
       "status": "ok",
