@@ -1,5 +1,5 @@
 {
-  "time": "2026-08-21 04:28:46",
+  "time": "2026-08-21 07:15:49",
   "source_count": 9,
   "merged": 57,
   "per_source": {
@@ -23,7 +23,7 @@
     },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 69
+      "channels": 70
     },
     "vamoschuck": {
       "status": "ok",
@@ -39,7 +39,7 @@
     },
     "zilong_btv": {
       "status": "ok",
-      "channels": 697
+      "channels": 678
     }
   }
 }
