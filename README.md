@@ -8,7 +8,7 @@
 - **央视频道**: 以 `CCTV` 开头, 统一为 `CCTV-X 名称` 格式 (如 `CCTV-1 综合`)
 - **卫视频道**: 名称含"卫视" 或 "凤凰资讯" (含 东南卫视/厦门卫视/海峡卫视 等)
 
-**线路排序**: 每个频道内 已验证可播线路按测速降序排最前, 超时保底线路排末尾; 每频道最多 8 条; 彻底剔除 IPv6 与广播台。
+**线路排序**: 每个频道内 **已验证可播线路按测速降序排最前**, **无速度(line 为 time 剔除)**, **速度低于 20KB/s 的剔除**; 每频道最多 8 条; 彻底剔除 IPv6 与广播台。
 
 ## 订阅地址
 
@@ -31,21 +31,14 @@
 
 | 源 | 说明 |
 |---|---|
-| ssili126/tv | 酒店源 (动态扫描) |
+| hepingcaizi/iptv `itvlist.txt` | 央视酒店源, 1013 条线路, UTF-8 |
+| hepingcaizi/iptv `weishi.txt` | 卫视酒店源, 301 条线路, UTF-8 |
 | best-fan/iptv-sources | 央视/卫视, 纯国内 IPv4, 每日自动更新 |
 | hujingguang/ChinaIPTV | 港澳台 |
 | vamoschuck/TV | 茶客源 |
 | myernestlu/zby | 经典 TXT 源 |
 | jincg99/tvbox | 酷9 源 |
 | zilong7728/Collect-IPTV | 每6小时更新的多源聚合 |
-
-## 死链剔除策略
-
-- 逐条 URL 请求并确认返回 `#EXTM3U`; HTTP 错误码 (403/404/410/5xx) 判死删除; 超时/DNS失败/连接拒绝 保留为保底线路排末尾; 单线路频道被误判时降级保底保留。
-- 彻底去除 IPv6 线路 (用户设备不支持), 剔除广播台。
-
-> 注: Actions 在 GitHub 服务器运行, 对部分国内运营商专属源可能误判 (403/超时), 若个别频道缺失可在仓库 Actions 页手动触发 `workflow_dispatch` 重跑。
-
-## 免责声明
-
-仅供个人学习测试使用, 所有直播源均来自公开互联网, 请遵守当地法律法规。
+| bestfan_cctv | 央视源 |
+| bestfan_province | 卫视源 |
+| ChinaIPTV | 自动更新源 |
