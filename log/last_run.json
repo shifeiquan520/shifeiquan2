@@ -1,5 +1,5 @@
 {
-  "time": "2026-08-22 04:22:11",
+  "time": "2026-08-23 04:26:57",
   "source_count": 9,
   "merged": 57,
   "per_source": {
@@ -15,15 +15,15 @@
     },
     "bestfan_cctv": {
       "status": "ok",
-      "channels": 94
+      "channels": 96
     },
     "bestfan_province": {
       "status": "ok",
-      "channels": 147
+      "channels": 159
     },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 71
+      "channels": 66
     },
     "vamoschuck": {
       "status": "ok",
@@ -35,11 +35,11 @@
     },
     "nft6cf127_ku9": {
       "status": "ok",
-      "channels": 815
+      "channels": 814
     },
     "zilong_btv": {
       "status": "ok",
-      "channels": 701
+      "channels": 685
     }
   }
 }
