@@ -1,7 +1,7 @@
 {
-  "time": "2026-08-24 02:19:48",
+  "time": "2026-08-24 04:35:45",
   "source_count": 9,
-  "merged": 59,
+  "merged": 53,
   "per_source": {
     "hepingcaizi_hotel": {
       "status": "err",
@@ -23,7 +23,7 @@
     },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 70
+      "channels": 68
     },
     "vamoschuck": {
       "status": "ok",
