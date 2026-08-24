@@ -2,10 +2,15 @@
 """抓取合并公共 EPG 源，输出 epg.xml.gz"""
 import concurrent.futures
 import gzip
+import os
 import sys
 import urllib.request
 import xml.etree.ElementTree as ET
 from io import BytesIO
+
+# 从 aggregate 导入映射表
+sys.path.insert(0, os.path.dirname(__file__))
+from aggregate import EPG_ID_MAP
 
 EPG_SOURCES = [
     "https://epg.pw/epg.xml",
@@ -20,6 +25,25 @@ TIMEOUT = 30
 OUTPUT = "epg.xml.gz"
 
 
+def normalize_name(name):
+    """将 EPG display-name 映射为标准频道名"""
+    if not name:
+        return None
+    name = name.strip()
+    # 直接命中映射表
+    if name in EPG_ID_MAP:
+        return EPG_ID_MAP[name]
+    # 反向查找：值匹配
+    for k, v in EPG_ID_MAP.items():
+        if name == v:
+            return v
+    # 模糊匹配：去除常见后缀
+    for k, v in EPG_ID_MAP.items():
+        if name.startswith(k) or k.startswith(name):
+            return v
+    return None
+
+
 def fetch(url):
     last_err = None
     for attempt in range(2):
@@ -27,7 +51,6 @@ def fetch(url):
             req = urllib.request.Request(url, headers={"User-Agent": UA})
             with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
                 data = r.read()
-                # 如果是 gzip 压缩，解压
                 if url.endswith(".gz") or data[:2] == b"\x1f\x8b":
                     data = gzip.decompress(data)
                 return data
@@ -40,7 +63,7 @@ def fetch(url):
 
 
 def parse_epg(xml_bytes):
-    """解析 EPG XML，返回 {channel_id: (display_name, xml_element)}"""
+    """解析 EPG XML，返回 {标准名: (标准名, xml_element)}"""
     try:
         root = ET.fromstring(xml_bytes)
     except ET.ParseError:
@@ -52,13 +75,15 @@ def parse_epg(xml_bytes):
         if not cid:
             continue
         dn = ch.find("display-name")
-        name = dn.text.strip() if dn is not None and dn.text else cid
-        channels[cid] = (name, ch)
+        raw_name = dn.text.strip() if dn is not None and dn.text else cid
+        std_name = normalize_name(raw_name)
+        if std_name:
+            channels[std_name] = (std_name, ch)
     return channels
 
 
 def merge_sources():
-    all_channels = {}  # cid -> (name, xml_element, source_priority)
+    all_channels = {}  # std_name -> (std_name, xml_element, source_priority)
     priority = {u: i for i, u in enumerate(EPG_SOURCES)}
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as ex:
@@ -69,9 +94,9 @@ def merge_sources():
                 data = fut.result()
                 chs = parse_epg(data)
                 print(f"  {url}: {len(chs)} channels")
-                for cid, (name, elem) in chs.items():
-                    if cid not in all_channels or priority[url] < all_channels[cid][2]:
-                        all_channels[cid] = (name, elem, priority[url])
+                for std_name, (name, elem) in chs.items():
+                    if std_name not in all_channels or priority[url] < all_channels[std_name][2]:
+                        all_channels[std_name] = (std_name, elem, priority[url])
             except Exception as e:
                 print(f"  {url}: FAILED {type(e).__name__}: {e}")
 
@@ -85,17 +110,14 @@ def write_epg(channels):
     tv.set("generator-info-name", "shifeiquan2-epg-merger")
     tv.set("generator-info-url", "https://github.com/shifeiquan520/shifeiquan2")
 
-    for cid, (name, elem, _) in sorted(channels.items()):
-        # 复制原 channel 元素，确保只保留 id 和 display-name
-        ch = ET.SubElement(tv, "channel", id=cid)
+    for std_name, (name, elem, _) in sorted(channels.items()):
+        ch = ET.SubElement(tv, "channel", id=std_name)
         dn = ET.SubElement(ch, "display-name")
-        dn.text = name
-        # 保留原有 icon 等属性
+        dn.text = std_name
         for attr in ("icon",):
             if elem.get(attr):
                 ch.set(attr, elem.get(attr))
 
-    # 写入并压缩
     xml_bytes = ET.tostring(tv, encoding="utf-8", xml_declaration=True)
     with gzip.open(OUTPUT, "wb", compresslevel=6) as f:
         f.write(xml_bytes)
