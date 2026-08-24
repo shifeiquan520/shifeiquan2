@@ -1,7 +1,7 @@
 {
-  "time": "2026-08-24 09:08:55",
+  "time": "2026-08-24 01:17:12",
   "source_count": 9,
-  "merged": 56,
+  "merged": 59,
   "per_source": {
     "hepingcaizi_hotel": {
       "status": "err",
@@ -14,9 +14,8 @@
       "error": "HTTP Error 404: Not Found"
     },
     "bestfan_cctv": {
-      "status": "err",
-      "channels": 0,
-      "error": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
+      "status": "ok",
+      "channels": 133
     },
     "bestfan_province": {
       "status": "ok",
@@ -24,7 +23,7 @@
     },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 65
+      "channels": 67
     },
     "vamoschuck": {
       "status": "ok",
