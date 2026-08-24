@@ -272,6 +272,7 @@ def speed_probe(url):
 
 MAX_LINES_PER_CHANNEL = 8
 MIN_SPEED_KBPS = 20
+CCTV_MIN_LINES = 3
 
 
 def filter_strict(channels):
@@ -280,6 +281,7 @@ def filter_strict(channels):
     超时/DNS/连接拒绝(无速度)直接剔除, 不做保底;
     可播但速度低于 MIN_SPEED_KBPS 的剔除;
     保留可播且达速线路, 按速度降序, 每频道最多 MAX_LINES_PER_CHANNEL 条;
+    央视频道至少保留 CCTV_MIN_LINES 条线路(含保底);
     频道所有线路无速度或全死则删除该频道
     """
     tasks = []
@@ -300,15 +302,33 @@ def filter_strict(channels):
 
     alive = []
     for ch in channels:
-        ok = []
+        is_cctv = ch.get("group") == "央视频道"
+        ok, time_urls, http_urls = [], [], []
         for u in ch["urls"]:
             if is_ipv6_url(u):
                 continue
             st, spd = results.get(u, ("time", 0.0))
             if st == "ok" and spd >= MIN_SPEED_KBPS:
                 ok.append((u, spd))
+            elif st == "time":
+                time_urls.append(u)
+            elif st == "http":
+                http_urls.append(u)
         ok.sort(key=lambda x: x[1], reverse=True)
-        urls = [u for u, _ in ok[:MAX_LINES_PER_CHANNEL]]
+        
+        if is_cctv:
+            # 央视频道：保留 ok + time + http 直到达到 CCTV_MIN_LINES
+            urls = [u for u, _ in ok]
+            if len(urls) < CCTV_MIN_LINES:
+                urls.extend(time_urls[:CCTV_MIN_LINES - len(urls)])
+            if len(urls) < CCTV_MIN_LINES:
+                urls.extend(http_urls[:CCTV_MIN_LINES - len(urls)])
+            # 最多不超过 MAX_LINES_PER_CHANNEL
+            urls = urls[:MAX_LINES_PER_CHANNEL]
+        else:
+            # 非央视频道：只保留达速线路
+            urls = [u for u, _ in ok[:MAX_LINES_PER_CHANNEL]]
+        
         if urls:
             ch["urls"] = urls
             alive.append(ch)
