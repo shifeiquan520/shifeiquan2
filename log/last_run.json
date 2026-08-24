@@ -1,7 +1,7 @@
 {
-  "time": "2026-08-24 01:17:12",
+  "time": "2026-08-24 01:35:06",
   "source_count": 9,
-  "merged": 59,
+  "merged": 58,
   "per_source": {
     "hepingcaizi_hotel": {
       "status": "err",
