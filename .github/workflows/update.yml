@@ -26,9 +26,6 @@ jobs:
       - name: 运行聚合脚本 (严格验证, 可播线路前置)
         run: python aggregate.py --strict
 
-      - name: 生成 EPG (合并公共源, 输出 epg.xml.gz)
-        run: python fetch_epg.py || echo "EPG 生成失败, 跳过"
-
       - name: 提交并推送更新
         run: |
           git config user.name "github-actions[bot]"
