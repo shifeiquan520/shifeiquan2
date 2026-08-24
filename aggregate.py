@@ -315,9 +315,19 @@ def filter_strict(channels):
             elif st == "http":
                 http_urls.append(u)
         ok.sort(key=lambda x: x[1], reverse=True)
-        
-        if is_cctv:
-            # 央视频道：保留 ok + time + http 直到达到 CCTV_MIN_LINES
+
+        # 标准央视频道集合（CCTV-1 到 CCTV-17）
+        STANDARD_CCTV = {
+            "CCTV-1 综合", "CCTV-2 财经", "CCTV-3 综艺", "CCTV-4 中文国际",
+            "CCTV-5 体育", "CCTV-5+ 体育赛事", "CCTV-6 电影", "CCTV-7 国防军事",
+            "CCTV-8 电视剧", "CCTV-9 纪录", "CCTV-10 科教", "CCTV-11 戏曲",
+            "CCTV-12 社会与法", "CCTV-13 新闻", "CCTV-14 少儿", "CCTV-15 音乐",
+            "CCTV-16 奥林匹克", "CCTV-17 农业农村",
+        }
+
+        is_standard_cctv = ch.get("name") in STANDARD_CCTV
+        if is_standard_cctv:
+            # 标准央视频道：保留 ok + time + http 直到达到 CCTV_MIN_LINES
             urls = [u for u, _ in ok]
             if len(urls) < CCTV_MIN_LINES:
                 urls.extend(time_urls[:CCTV_MIN_LINES - len(urls)])
@@ -326,7 +336,7 @@ def filter_strict(channels):
             # 最多不超过 MAX_LINES_PER_CHANNEL
             urls = urls[:MAX_LINES_PER_CHANNEL]
         else:
-            # 非央视频道：只保留达速线路
+            # 非标准央视频道：只保留达速线路
             urls = [u for u, _ in ok[:MAX_LINES_PER_CHANNEL]]
         
         if urls:
