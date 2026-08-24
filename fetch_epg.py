@@ -13,15 +13,15 @@ sys.path.insert(0, os.path.dirname(__file__))
 from aggregate import EPG_ID_MAP
 
 EPG_SOURCES = [
-    "https://epg.pw/epg.xml",
     "https://epg.51zmt.top/api/epg.xml",
+    "https://epg.pw/epg.xml",
     "https://epg.112114.xyz/epg.xml",
     "https://epg.51zmt.top/epg.xml",
     "https://epg.pw/epg.xml.gz",
 ]
 
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-TIMEOUT = 30
+TIMEOUT = 60
 OUTPUT = "epg.xml.gz"
 
 

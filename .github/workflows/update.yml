@@ -27,7 +27,7 @@ jobs:
         run: python aggregate.py --strict
 
       - name: 生成 EPG (合并公共源, 输出 epg.xml.gz)
-        run: python fetch_epg.py
+        run: python fetch_epg.py || echo "EPG 生成失败, 跳过"
 
       - name: 提交并推送更新
         run: |
