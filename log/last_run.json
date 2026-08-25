@@ -1,12 +1,12 @@
 {
-  "time": "2026-08-24 04:35:45",
+  "time": "2026-08-25 04:29:18",
   "source_count": 9,
-  "merged": 53,
+  "merged": 56,
   "per_source": {
     "hepingcaizi_hotel": {
       "status": "err",
       "channels": 0,
-      "error": "HTTP Error 404: Not Found"
+      "error": "<urlopen error [Errno 104] Connection reset by peer>"
     },
     "hepingcaizi_weishi": {
       "status": "err",
@@ -15,15 +15,15 @@
     },
     "bestfan_cctv": {
       "status": "ok",
-      "channels": 133
+      "channels": 101
     },
     "bestfan_province": {
       "status": "ok",
-      "channels": 149
+      "channels": 92
     },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 68
+      "channels": 69
     },
     "vamoschuck": {
       "status": "ok",
@@ -39,7 +39,7 @@
     },
     "zilong_btv": {
       "status": "ok",
-      "channels": 684
+      "channels": 686
     }
   }
 }
