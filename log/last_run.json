@@ -1,7 +1,7 @@
 {
-  "time": "2026-08-28 15:51:47",
+  "time": "2026-08-28 07:56:50",
   "source_count": 9,
-  "merged": 57,
+  "merged": 59,
   "per_source": {
     "bestfan_cctv": {
       "status": "ok",
@@ -28,9 +28,8 @@
       "channels": 789
     },
     "zby": {
-      "status": "err",
-      "channels": 0,
-      "error": "<urlopen error [Errno 11002] getaddrinfo failed>"
+      "status": "ok",
+      "channels": 589
     },
     "nft6cf127_ku9": {
       "status": "ok",
