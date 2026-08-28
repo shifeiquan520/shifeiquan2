@@ -1,28 +1,26 @@
 {
   "sources": [
     {
-      "name": "hepingcaizi_hotel",
-      "url": "https://raw.githubusercontent.com/hepingcaizi/iptv/main/itvlist.txt",
-      "type": "txt",
-      "encoding": "utf-8",
-      "enabled": true
-    },
-    {
-      "name": "hepingcaizi_weishi",
-      "url": "https://raw.githubusercontent.com/hepingcaizi/iptv/main/weishi.txt",
-      "type": "txt",
-      "encoding": "utf-8",
-      "enabled": true
-    },
-    {
       "name": "bestfan_cctv",
-      "url": "https://raw.githubusercontent.com/best-fan/iptv-sources/main/cn_cctv.m3u8",
+      "url": "https://raw.githubusercontent.com/best-fan/iptv-sources/master/cn_cctv.m3u8",
       "type": "m3u",
       "enabled": true
     },
     {
       "name": "bestfan_province",
-      "url": "https://raw.githubusercontent.com/best-fan/iptv-sources/main/cn_province.m3u8",
+      "url": "https://raw.githubusercontent.com/best-fan/iptv-sources/master/cn_province.m3u8",
+      "type": "m3u",
+      "enabled": true
+    },
+    {
+      "name": "bestfan_cn_pay",
+      "url": "https://raw.githubusercontent.com/best-fan/iptv-sources/master/cn_pay.m3u8",
+      "type": "m3u",
+      "enabled": true
+    },
+    {
+      "name": "iptv_org_cn",
+      "url": "https://iptv-org.github.io/iptv/languages/zho.m3u",
       "type": "m3u",
       "enabled": true
     },

@@ -1,18 +1,8 @@
 {
-  "time": "2026-08-28 03:43:20",
+  "time": "2026-08-28 15:51:47",
   "source_count": 9,
   "merged": 57,
   "per_source": {
-    "hepingcaizi_hotel": {
-      "status": "err",
-      "channels": 0,
-      "error": "HTTP Error 404: Not Found"
-    },
-    "hepingcaizi_weishi": {
-      "status": "err",
-      "channels": 0,
-      "error": "HTTP Error 404: Not Found"
-    },
     "bestfan_cctv": {
       "status": "ok",
       "channels": 74
@@ -21,17 +11,26 @@
       "status": "ok",
       "channels": 71
     },
+    "bestfan_cn_pay": {
+      "status": "ok",
+      "channels": 7
+    },
+    "iptv_org_cn": {
+      "status": "ok",
+      "channels": 207
+    },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 67
+      "channels": 68
     },
     "vamoschuck": {
       "status": "ok",
       "channels": 789
     },
     "zby": {
-      "status": "ok",
-      "channels": 589
+      "status": "err",
+      "channels": 0,
+      "error": "<urlopen error [Errno 11002] getaddrinfo failed>"
     },
     "nft6cf127_ku9": {
       "status": "ok",
@@ -39,7 +38,7 @@
     },
     "zilong_btv": {
       "status": "ok",
-      "channels": 677
+      "channels": 689
     }
   }
 }
