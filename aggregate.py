@@ -215,6 +215,23 @@ def _first_segment(data, url):
     return None
 
 
+def parse_master_m3u8_resolutions(data):
+    """解析 master m3u8，返回所有可用分辨率列表 [(width, height), ...]"""
+    try:
+        text = data.decode("utf-8", errors="ignore")
+    except Exception:
+        return []
+    resolutions = []
+    for line in text.splitlines():
+        line = line.strip()
+        if line.startswith("#EXT-X-STREAM-INF"):
+            m = re.search(r'RESOLUTION=(\d+)x(\d+)', line)
+            if m:
+                w, h = int(m.group(1)), int(m.group(2))
+                resolutions.append((w, h))
+    return resolutions
+
+
 def speed_probe(url):
     """测速探测: 确认 m3u8 可播并测量下载速度
     返回: (验证状态, 速度KB/s)
@@ -240,7 +257,7 @@ def speed_probe(url):
     try:
         seg = _first_segment(data, url)
         if not seg:
-            return ("http", 0.0)
+            return ("http", 0.0, (0, 0))
         if seg.startswith("http://") or seg.startswith("https://"):
             ts_url = seg
         elif seg.startswith("/"):
@@ -249,7 +266,14 @@ def speed_probe(url):
         else:
             ts_url = url.rsplit("/", 1)[0] + "/" + seg
     except Exception:
-        return ("http", 0.0)
+        return ("http", 0.0, (0, 0))
+
+    # 解析 master m3u8 分辨率
+    resolutions = parse_master_m3u8_resolutions(data)
+    if resolutions:
+        max_res = max(resolutions, key=lambda x: x[0] * x[1])
+    else:
+        max_res = (0, 0)
 
     # 下载片段测速
     try:
@@ -257,21 +281,22 @@ def speed_probe(url):
         t0 = time.time()
         with urllib.request.urlopen(req2, timeout=SPEED_TIMEOUT) as r2:
             if r2.status not in (200, 206):
-                return ("http", 0.0)
+                return ("http", 0.0, max_res)
             chunk = r2.read(32768)
         dt = time.time() - t0
         if dt <= 0:
-            return ("time", 0.0)
+            return ("time", 0.0, max_res)
         speed = len(chunk) / 1024.0 / dt
-        return ("ok", speed)
+        return ("ok", speed, max_res)
     except urllib.error.HTTPError:
-        return ("http", 0.0)
+        return ("http", 0.0, (0, 0))
     except Exception:
-        return ("time", 0.0)
+        return ("time", 0.0, (0, 0))
 
 
 MAX_LINES_PER_CHANNEL = 8
 MIN_SPEED_KBPS = 20
+MIN_RESOLUTION = (1280, 720)
 CCTV_MIN_LINES = 3
 
 
@@ -280,6 +305,7 @@ def filter_strict(channels):
     去除 IPv6; HTTP 错误码(403/404/410/5xx)判死删除;
     超时/DNS/连接拒绝(无速度)直接剔除, 不做保底;
     可播但速度低于 MIN_SPEED_KBPS 的剔除;
+    分辨率低于 MIN_RESOLUTION 的剔除;
     保留可播且达速线路, 按速度降序, 每频道最多 MAX_LINES_PER_CHANNEL 条;
     央视频道至少保留 CCTV_MIN_LINES 条线路(含保底);
     频道所有线路无速度或全死则删除该频道
@@ -298,7 +324,7 @@ def filter_strict(channels):
                 try:
                     results[u] = fut.result()
                 except Exception:
-                    results[u] = ("time", 0.0)
+                    results[u] = ("time", 0.0, (0, 0))
 
     alive = []
     for ch in channels:
@@ -307,9 +333,17 @@ def filter_strict(channels):
         for u in ch["urls"]:
             if is_ipv6_url(u):
                 continue
-            st, spd = results.get(u, ("time", 0.0))
+            val = results.get(u, ("time", 0.0, (0, 0)))
+            if len(val) == 2:
+                st, spd = val
+                res = (0, 0)
+            else:
+                st, spd, res = val
+            # 分辨率过滤：只有当检测到分辨率信息且低于最低要求时才过滤
+            has_resolution = res[0] > 0 and res[1] > 0
             if st == "ok" and spd >= MIN_SPEED_KBPS:
-                ok.append((u, spd))
+                if not has_resolution or (res[0] >= MIN_RESOLUTION[0] and res[1] >= MIN_RESOLUTION[1]):
+                    ok.append((u, spd, res))
             elif st == "time":
                 time_urls.append(u)
             elif st == "http":
@@ -328,7 +362,7 @@ def filter_strict(channels):
         is_standard_cctv = ch.get("name") in STANDARD_CCTV
         if is_standard_cctv:
             # 标准央视频道：保留 ok + time + http 直到达到 CCTV_MIN_LINES
-            urls = [u for u, _ in ok]
+            urls = [u for u, _, _ in ok]
             if len(urls) < CCTV_MIN_LINES:
                 urls.extend(time_urls[:CCTV_MIN_LINES - len(urls)])
             if len(urls) < CCTV_MIN_LINES:
@@ -337,7 +371,7 @@ def filter_strict(channels):
             urls = urls[:MAX_LINES_PER_CHANNEL]
         else:
             # 非标准央视频道：只保留达速线路
-            urls = [u for u, _ in ok[:MAX_LINES_PER_CHANNEL]]
+            urls = [u for u, _, _ in ok[:MAX_LINES_PER_CHANNEL]]
         
         if urls:
             ch["urls"] = urls
