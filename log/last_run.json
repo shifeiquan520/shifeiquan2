@@ -1,5 +1,5 @@
 {
-  "time": "2026-08-31 03:19:53",
+  "time": "2026-08-31 10:13:22",
   "source_count": 9,
   "merged": 61,
   "per_source": {
@@ -21,7 +21,7 @@
     },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 68
+      "channels": 64
     },
     "vamoschuck": {
       "status": "ok",
