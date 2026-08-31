@@ -180,6 +180,20 @@ def is_ipv6_url(url):
     return bool(m)
 
 
+def get_domain(url):
+    """从 URL 提取域名，支持多个 URL 用 # 分隔，自动去除端口号"""
+    try:
+        domains = []
+        for part in url.split('#'):
+            part = part.strip()
+            m = re.search(r'://([^:/]+)', part)
+            if m:
+                domains.append(m.group(1))
+        return domains
+    except Exception:
+        return []
+
+
 def _first_segment(data, url):
     """从 m3u8 内容中解析第一个可下载片段地址, 支持嵌套子清单(#EXT-X-STREAM-INF)"""
     try:
@@ -299,6 +313,12 @@ MIN_SPEED_KBPS = 20
 MIN_RESOLUTION = (1280, 720)
 CCTV_MIN_LINES = 3
 
+BLOCKED_DOMAINS = {
+    "ali-m-l.cztv.com",   # 录播频道
+    "ali-xwl.cztv.com",   # 录播频道
+    "cztv.com",           # cztv 全域名屏蔽
+}
+
 
 def filter_strict(channels):
     """严格死链剔除:
@@ -332,6 +352,8 @@ def filter_strict(channels):
         ok, time_urls, http_urls = [], [], []
         for u in ch["urls"]:
             if is_ipv6_url(u):
+                continue
+            if any(d in BLOCKED_DOMAINS for d in get_domain(u)):
                 continue
             val = results.get(u, ("time", 0.0, (0, 0)))
             if len(val) == 2:
