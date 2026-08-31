@@ -1,43 +1,48 @@
 {
-  "time": "2026-08-30 09:34:18",
+  "time": "2026-08-31 11:16:08",
   "source_count": 9,
-  "merged": 55,
+  "merged": 51,
   "per_source": {
     "bestfan_cctv": {
       "status": "ok",
-      "channels": 78
+      "channels": 92
     },
     "bestfan_province": {
       "status": "ok",
-      "channels": 123
+      "channels": 102
     },
     "bestfan_cn_pay": {
-      "status": "ok",
-      "channels": 6
+      "status": "err",
+      "channels": 0,
+      "error": "The read operation timed out"
     },
     "iptv_org_cn": {
       "status": "ok",
       "channels": 207
     },
     "ChinaIPTV": {
-      "status": "ok",
-      "channels": 69
+      "status": "err",
+      "channels": 0,
+      "error": "The read operation timed out"
     },
     "vamoschuck": {
-      "status": "ok",
-      "channels": 789
+      "status": "err",
+      "channels": 0,
+      "error": "The read operation timed out"
     },
     "zby": {
       "status": "ok",
       "channels": 589
     },
     "nft6cf127_ku9": {
-      "status": "ok",
-      "channels": 812
+      "status": "err",
+      "channels": 0,
+      "error": "The read operation timed out"
     },
     "zilong_btv": {
-      "status": "ok",
-      "channels": 682
+      "status": "err",
+      "channels": 0,
+      "error": "The read operation timed out"
     }
   }
 }
