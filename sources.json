@@ -4,57 +4,66 @@
       "name": "bestfan_cctv",
       "url": "https://raw.githubusercontent.com/best-fan/iptv-sources/master/cn_cctv.m3u8",
       "type": "m3u",
-      "enabled": true
+      "enabled": true,
+      "consecutive_timeouts": 0
     },
     {
       "name": "bestfan_province",
       "url": "https://raw.githubusercontent.com/best-fan/iptv-sources/master/cn_province.m3u8",
       "type": "m3u",
-      "enabled": true
+      "enabled": true,
+      "consecutive_timeouts": 0
     },
     {
       "name": "bestfan_cn_pay",
       "url": "https://raw.githubusercontent.com/best-fan/iptv-sources/master/cn_pay.m3u8",
       "type": "m3u",
-      "enabled": true
+      "enabled": true,
+      "consecutive_timeouts": 0
     },
     {
       "name": "iptv_org_cn",
       "url": "https://iptv-org.github.io/iptv/languages/zho.m3u",
       "type": "m3u",
-      "enabled": true
+      "enabled": true,
+      "consecutive_timeouts": 0
     },
     {
       "name": "ChinaIPTV",
       "url": "https://raw.githubusercontent.com/hujingguang/ChinaIPTV/main/cnTV_AutoUpdate.m3u8",
       "type": "m3u",
-      "enabled": true
+      "enabled": true,
+      "consecutive_timeouts": 0
     },
     {
       "name": "vamoschuck",
       "url": "https://raw.githubusercontent.com/vamoschuck/TV/main/M3U",
       "type": "m3u",
-      "enabled": true
+      "enabled": true,
+      "consecutive_timeouts": 0
     },
     {
       "name": "zby",
       "url": "https://myernestlu.github.io/zby.txt",
       "type": "txt",
       "encoding": "gbk",
-      "enabled": true
+      "enabled": true,
+      "consecutive_timeouts": 0
     },
     {
       "name": "nft6cf127_ku9",
       "url": "https://raw.githubusercontent.com/jincg99/tvbox/refs/heads/main/live.txt",
       "type": "txt",
       "encoding": "utf-8",
-      "enabled": true
+      "enabled": true,
+      "consecutive_timeouts": 0
     },
     {
       "name": "zilong_btv",
       "url": "https://raw.githubusercontent.com/zilong7728/Collect-IPTV/main/best_sorted.m3u",
       "type": "m3u",
-      "enabled": true
+      "enabled": true,
+      "consecutive_timeouts": 0
     }
   ]
 }
