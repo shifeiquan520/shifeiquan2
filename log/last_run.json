@@ -1,7 +1,7 @@
 {
-  "time": "2026-09-03 17:42:40",
+  "time": "2026-09-03 09:50:45",
   "source_count": 9,
-  "merged": 56,
+  "merged": 54,
   "per_source": {
     "bestfan_cctv": {
       "status": "ok",
