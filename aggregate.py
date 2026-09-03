@@ -312,6 +312,15 @@ MAX_LINES_PER_CHANNEL = 8
 MIN_SPEED_KBPS = 20
 MIN_RESOLUTION = (1280, 720)
 CCTV_MIN_LINES = 3
+MAX_CONSECUTIVE_TIMEOUTS = 5
+
+# 超时关键词判定
+TIMEOUT_KEYWORDS = [
+    "timeout", "timed out", "getaddrinfo failed",
+    "read timed out", "connection timed out", "connect timeout",
+    "etimedout", "connection refused", "connection reset",
+    "network is unreachable", "no route to host"
+]
 
 BLOCKED_DOMAINS = {
     "ali-m-l.cztv.com",   # 录播频道
@@ -574,15 +583,35 @@ def to_m3u(channels):
     return "\n".join(lines)
 
 
+def is_timeout_error(err):
+    """判断是否为超时类错误"""
+    err_str = str(err).lower()
+    for kw in TIMEOUT_KEYWORDS:
+        if kw in err_str:
+            return True
+    return False
+
+
 def main():
     with open(CONFIG_FILE, "r", encoding="utf-8") as f:
         cfg = json.load(f)
-    enabled = [s for s in cfg["sources"] if s.get("enabled", True)]
+
+    # 初始化来源列表，确保有 consecutive_timeouts 字段
+    sources = cfg.get("sources", [])
+    for s in sources:
+        if "consecutive_timeouts" not in s:
+            s["consecutive_timeouts"] = 0
+
+    enabled = [s for s in sources if s.get("enabled", True)]
     print("启用 %d 个源" % len(enabled))
 
     all_channels = []
     per_source = {}
+
     for s in enabled:
+        name = s["name"]
+        consecutive_timeouts = s.get("consecutive_timeouts", 0)
+
         try:
             text = fetch(s["url"], s.get("encoding", "auto"))
             if s.get("type") == "txt":
@@ -590,11 +619,29 @@ def main():
             else:
                 chs = parse_m3u(text)
             all_channels.extend(chs)
-            per_source[s["name"]] = {"status": "ok", "channels": len(chs)}
-            print("  [OK] %s -> %d channels" % (s["name"], len(chs)))
+            per_source[name] = {"status": "ok", "channels": len(chs), "consecutive_timeouts": 0}
+            s["consecutive_timeouts"] = 0  # 重置计数
+            print("  [OK] %s -> %d channels" % (name, len(chs)))
         except Exception as e:
-            per_source[s["name"]] = {"status": "err", "channels": 0, "error": str(e)[:120]}
-            print("  [ERR] %s -> %s" % (s["name"], e))
+            err_str = str(e)
+            is_timeout = is_timeout_error(e)
+            if is_timeout:
+                consecutive_timeouts += 1
+                s["consecutive_timeouts"] = consecutive_timeouts
+                per_source[name] = {
+                    "status": "err",
+                    "channels": 0,
+                    "error": err_str[:120],
+                    "consecutive_timeouts": consecutive_timeouts
+                }
+                print("  [ERR] %s -> %s (连续超时: %d/%d)" % (name, e, consecutive_timeouts, MAX_CONSECUTIVE_TIMEOUTS))
+                if consecutive_timeouts >= MAX_CONSECUTIVE_TIMEOUTS:
+                    s["enabled"] = False
+                    print("  [BAN] %s 连续 %d 次超时，已禁用" % (name, MAX_CONSECUTIVE_TIMEOUTS))
+            else:
+                # 非超时错误，不增加计数
+                per_source[name] = {"status": "err", "channels": 0, "error": str(e)[:120], "consecutive_timeouts": consecutive_timeouts}
+                print("  [ERR] %s -> %s (非超时错误，计数不变: %d)" % (name, e, consecutive_timeouts))
 
     print("抓取完成, 原始频道 %d" % len(all_channels))
     merged = merge_dedupe(all_channels)
@@ -642,6 +689,14 @@ def main():
     with open(OUTPUT_M3U, "w", encoding="utf-8") as f:
         f.write(to_m3u(merged))
     print("已输出 ku9.txt (%d 频道) 和 tv.m3u" % len(merged))
+
+    # 保存更新后的 sources.json
+    try:
+        with open(CONFIG_FILE, "w", encoding="utf-8") as f:
+            json.dump(cfg, f, ensure_ascii=False, indent=2)
+        print("已更新 sources.json (连续超时计数)")
+    except Exception as e:
+        print("[WARN] 写入 sources.json 失败: %s" % e)
 
     os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
     with open(LOG_FILE, "w", encoding="utf-8") as f:
