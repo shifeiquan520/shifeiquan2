@@ -1,21 +1,21 @@
 {
-  "time": "2026-09-09 20:12:19",
+  "time": "2026-09-10 20:13:57",
   "source_count": 9,
-  "merged": 55,
+  "merged": 52,
   "per_source": {
     "bestfan_cctv": {
       "status": "ok",
-      "channels": 94,
+      "channels": 58,
       "consecutive_timeouts": 0
     },
     "bestfan_province": {
       "status": "ok",
-      "channels": 98,
+      "channels": 66,
       "consecutive_timeouts": 0
     },
     "bestfan_cn_pay": {
       "status": "ok",
-      "channels": 7,
+      "channels": 8,
       "consecutive_timeouts": 0
     },
     "iptv_org_cn": {
@@ -25,7 +25,7 @@
     },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 66,
+      "channels": 68,
       "consecutive_timeouts": 0
     },
     "vamoschuck": {
@@ -45,7 +45,7 @@
     },
     "zilong_btv": {
       "status": "ok",
-      "channels": 729,
+      "channels": 768,
       "consecutive_timeouts": 0
     }
   }
