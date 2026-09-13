@@ -1,16 +1,16 @@
 {
-  "time": "2026-09-12 19:52:04",
+  "time": "2026-09-13 20:00:47",
   "source_count": 9,
-  "merged": 52,
+  "merged": 53,
   "per_source": {
     "bestfan_cctv": {
       "status": "ok",
-      "channels": 69,
+      "channels": 70,
       "consecutive_timeouts": 0
     },
     "bestfan_province": {
       "status": "ok",
-      "channels": 66,
+      "channels": 76,
       "consecutive_timeouts": 0
     },
     "bestfan_cn_pay": {
@@ -45,7 +45,7 @@
     },
     "zilong_btv": {
       "status": "ok",
-      "channels": 753,
+      "channels": 781,
       "consecutive_timeouts": 0
     }
   }
