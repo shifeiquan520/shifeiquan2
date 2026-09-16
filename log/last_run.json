@@ -1,7 +1,7 @@
 {
-  "time": "2026-09-15 20:38:35",
+  "time": "2026-09-16 07:27:05",
   "source_count": 9,
-  "merged": 55,
+  "merged": 47,
   "per_source": {
     "bestfan_cctv": {
       "status": "ok",
@@ -25,7 +25,7 @@
     },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 66,
+      "channels": 67,
       "consecutive_timeouts": 0
     },
     "vamoschuck": {
@@ -45,7 +45,7 @@
     },
     "zilong_btv": {
       "status": "ok",
-      "channels": 726,
+      "channels": 656,
       "consecutive_timeouts": 0
     }
   }
