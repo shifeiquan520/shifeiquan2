@@ -31,14 +31,12 @@
 
 | 源 | 说明 |
 |---|---|
-| hepingcaizi/iptv `itvlist.txt` | 央视酒店源, 1013 条线路, UTF-8 |
-| hepingcaizi/iptv `weishi.txt` | 卫视酒店源, 301 条线路, UTF-8 |
-| best-fan/iptv-sources | 央视/卫视, 纯国内 IPv4, 每日自动更新 |
-| hujingguang/ChinaIPTV | 港澳台 |
+| best-fan/iptv-sources cn_cctv | 央视源, 纯国内 IPv4, 每日更新 |
+| best-fan/iptv-sources cn_province | 卫视源, 每日更新 |
+| best-fan/iptv-sources cn_pay | 付费频道源 |
+| iptv-org/iptv zho | 中文频道聚合 |
+| hujingguang/ChinaIPTV | 自动更新源 |
 | vamoschuck/TV | 茶客源 |
-| myernestlu/zby | 经典 TXT 源 |
+| myernestlu/zby | 经典 TXT 源 (GBK) |
 | jincg99/tvbox | 酷9 源 |
 | zilong7728/Collect-IPTV | 每6小时更新的多源聚合 |
-| bestfan_cctv | 央视源 |
-| bestfan_province | 卫视源 |
-| ChinaIPTV | 自动更新源 |
