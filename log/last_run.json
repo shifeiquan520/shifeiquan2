@@ -1,5 +1,5 @@
 {
-  "time": "2026-10-23 20:51:43",
+  "time": "2026-10-24 20:02:32",
   "source_count": 9,
   "merged": 55,
   "per_source": {
@@ -25,7 +25,7 @@
     },
     "ChinaIPTV": {
       "status": "ok",
-      "channels": 69,
+      "channels": 70,
       "consecutive_timeouts": 0
     },
     "vamoschuck": {
@@ -40,12 +40,12 @@
     },
     "nft6cf127_ku9": {
       "status": "ok",
-      "channels": 991,
+      "channels": 978,
       "consecutive_timeouts": 0
     },
     "zilong_btv": {
       "status": "ok",
-      "channels": 712,
+      "channels": 718,
       "consecutive_timeouts": 0
     }
   }
