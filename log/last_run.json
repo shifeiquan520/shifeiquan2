@@ -1,5 +1,5 @@
 {
-  "time": "2026-11-21 22:40:05",
+  "time": "2026-11-22 23:03:20",
   "source_count": 9,
   "merged": 54,
   "per_source": {
@@ -40,12 +40,12 @@
     },
     "nft6cf127_ku9": {
       "status": "ok",
-      "channels": 1342,
+      "channels": 1343,
       "consecutive_timeouts": 0
     },
     "zilong_btv": {
       "status": "ok",
-      "channels": 567,
+      "channels": 568,
       "consecutive_timeouts": 0
     }
   }
